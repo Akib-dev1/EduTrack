@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+}
+#sidebar {
+  max-width: 14rem;
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.logo-box {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+}
+.logo-text {
+  color: black;
+}
+.logo-text > p {
+  color: #736d6d;
+}
+.logo {
+  background-color: #0f172a;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  height: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.nav-links {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: bolder;
+}
+.nav-links > h4 {
+  font-weight: bold;
+}
+.links.active {
+  background-color: #f4f7fa;
+}
+.links.active > a {
+  color: black;
+}
+.links {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.links > a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: start;
+  color: #47557c;
+  font-weight: 600;
+}
+.sidebar-bottom > button {
+  padding: 1rem 2rem;
+  display: flex;
+  border: none;
+  background-color: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  gap: 1rem;
+  align-items: center;
+  box-shadow: 0 -1px 2px rgb(0 0 0 / 0.05);
+}
+.headers-nav {
+  display: flex;
+}
+header {
+  background-color: #fefefe;
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+  padding: 1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+  border-color: rgb(0 0 0 / 0.05);
+}
+header > h4 {
+  word-spacing: 0.5rem;
+}
+header > h4 > span {
+  font-weight: 600;
+}
+.user-box {
+  display: flex;
+  align-items: center;
+  padding: 0rem 1.5rem;
+  gap: 1rem;
+}
+.user-logo {
+  border-radius: 50%;
+  background-color: black;
+  padding: 0.5rem;
+  color: white;
+}
+.main-content {
+  flex-grow: 1;
+  flex-direction: column;
+}
+.main-content > .content {
+  background-color: #f8fafc;
+  width: 100%;
+  min-height: 100vh;
+  padding: 3.5rem 2.5rem;
+}
