@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | Courses & Batches</title>
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="CSS/admin.css" />
+    <link rel="stylesheet" href="CSS/admin_courses-batches.css" />
+    <script
+      src="https://kit.fontawesome.com/2f2e6479ad.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="full-site">
+    <nav id="sidebar">
+      <div class="sidebar-top">
+        <div class="logo-box">
+          <div class="logo"><i class="fa-brands fa-leanpub"></i></div>
+          <div class="logo-text">
+            <h4>EduTrack</h4>
+            <p>Academic Portal</p>
+          </div>
+        </div>
+        <div class="nav-links">
+          <h4>Menu</h4>
+          <div class="links">
+            <a href="admin_dashboard.html"
+              ><i class="fa-solid fa-table-cells-large"></i> Dashboard</a
+            >
+          </div>
+          <div class="links">
+            <a href="admin_users.html"
+              ><i class="fa-solid fa-users"></i>User Management</a
+            >
+          </div>
+          <div class="links active">
+            <a href="admin_courses-batches.html"
+              ><i class="fa-solid fa-book-open"></i>Courses & Batches</a
+            >
+          </div>
+          <div class="links">
+            <a href=""
+              ><i class="fa-solid fa-user-check"></i>Student Enrollment</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-bottom">
+        <button>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
+        </button>
+      </div>
+    </nav>
+    <div class="main-content">
+      <header>
+        <h4>Operations / <span>Courses & Batches</span></h4>
+        <div class="user-box">
+          <div class="user-logo">AU</div>
+          <div class="logo-text">
+            <h4>Admin User</h4>
+            <p>Main Campus</p>
+          </div>
+        </div>
+      </header>
+      <!-- Main Page -->
+      <div class="content">
+        <div class="courses-page">
+          <!-- Page heading -->
+          <div class="courses-heading">
+            <div class="courses-heading-text">
+              <p class="courses-label">
+                CURRICULUM & OPERATIONS ·
+                <span class="academic-year">ACADEMIC YEAR 2025</span>
+              </p>
+              <h2 class="courses-title">Courses & Batches</h2>
+              <p class="courses-description">
+                Manage academic offerings, active cohorts, teacher assignments,
+                and fee schedules.
+              </p>
+            </div>
+            <div class="campus-badge">
+              <span class="green-dot"></span>
+              Main Campus
+            </div>
+          </div>
+          <!-- Courses -->
+          <div class="courses-card">
+            <div class="courses-card-top">
+              <div class="courses-card-heading">
+                <h3 class="courses-card-title">Courses</h3>
+                <span class="count-badge">4 Active Courses</span>
+              </div>
+              <button class="add-button">
+                <i class="fa-solid fa-plus"></i>
+                Add Course
+              </button>
+            </div>
+            <div class="courses-table-box">
+              <table class="courses-table">
+                <thead>
+                  <tr>
+                    <th class="table-heading">Course Name</th>
+                    <th class="table-heading">Short Description</th>
+                    <th class="table-heading center-text">Status</th>
+                    <th class="table-heading right-text">Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td class="table-cell">
+                      <p class="course-name">HSC Physics</p>
+                      <p class="course-code">PHY-HSC-101</p>
+                    </td>
+
+                    <td class="table-cell course-description">
+                      Comprehensive fundamental and exam preparation covering
+                      Newtonian mechanics, thermodynamics, and optics.
+                    </td>
+
+                    <td class="table-cell center-text">
+                      <span class="active-badge">
+                        <span class="status-dot"></span>
+                        Active
+                      </span>
+                    </td>
+
+                    <td class="table-cell right-text">
+                      <button type="button" class="edit-button">Edit</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Batches -->
+          <div class="courses-card">
+            <div class="courses-card-top">
+              <div class="courses-card-heading">
+                <h3 class="courses-card-title">Batches</h3>
+                <span class="count-badge">4 Active Batches</span>
+              </div>
+
+              <button type="button" class="add-button">
+                <i class="fa-solid fa-plus"></i>
+                Add Batch
+              </button>
+            </div>
+
+            <div class="courses-table-box">
+              <table class="batches-table">
+                <thead>
+                  <tr>
+                    <th class="table-heading">Batch Name</th>
+                    <th class="table-heading">Course</th>
+                    <th class="table-heading">Assigned Teacher</th>
+                    <th class="table-heading">Schedule</th>
+                    <th class="table-heading right-text">Monthly Fee</th>
+                    <th class="table-heading center-text">Status</th>
+                    <th class="table-heading right-text">Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td class="table-cell batch-title">Physics Morning A</td>
+
+                    <td class="table-cell">
+                      <span class="subject-badge">HSC Physics</span>
+                    </td>
+
+                    <td class="table-cell">
+                      <div class="teacher-info">
+                        <span class="teacher-avatar">KH</span>
+                        <span>Mr. Kamal Hossain</span>
+                      </div>
+                    </td>
+
+                    <td class="table-cell batch-schedule">
+                      Sun, Tue, Thu: 5–6 PM
+                    </td>
+
+                    <td class="table-cell monthly-fee right-text">৳1,500</td>
+
+                    <td class="table-cell center-text">
+                      <span class="active-badge">
+                        <span class="status-dot"></span>
+                        Active
+                      </span>
+                    </td>
+
+                    <td class="table-cell right-text">
+                      <button type="button" class="edit-button">Edit</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

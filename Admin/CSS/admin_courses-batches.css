@@ -1,0 +1,269 @@
+/* Allows tables to scroll inside your existing layout */
+.main-content {
+  min-width: 0;
+}
+
+.courses-page {
+  color: #0f172a;
+}
+
+/* Page heading */
+.courses-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.courses-label {
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.04rem;
+}
+
+.academic-year {
+  color: #2563eb;
+}
+
+.courses-title {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.courses-description {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.campus-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.2rem;
+  background-color: #eef3ff;
+  color: #334155;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.green-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+/* Cards */
+.courses-card {
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border: 1px solid #eef2f7;
+  border-radius: 0.6rem;
+  background-color: white;
+}
+
+.courses-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.courses-card-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.courses-card-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.count-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  background-color: #eef3ff;
+  color: #334155;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 0.15rem;
+  background-color: black;
+  color: white;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+/* Tables */
+.courses-table-box {
+  overflow-x: auto;
+}
+
+.courses-table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.batches-table {
+  width: 100%;
+  min-width: 65rem;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table-heading {
+  padding: 0.75rem 1.5rem;
+  background-color: #eef3ff;
+  color: #334155;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+}
+
+.table-cell {
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid #eef2f7;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.right-text {
+  text-align: right;
+}
+
+/* Course details */
+.course-name {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.course-code {
+  margin-top: 0.15rem;
+  color: #64748b;
+  font-size: 0.7rem;
+}
+
+.course-description {
+  max-width: 28rem;
+  color: #475569;
+}
+
+/* Status and edit buttons */
+.active-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 1rem;
+  background-color: #ecfdf5;
+  color: #059669;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background-color: #10b981;
+}
+
+.edit-button {
+  padding: 0.25rem 0.6rem;
+  border: none;
+  border-radius: 0.15rem;
+  background-color: #eef3ff;
+  color: #1e293b;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Batch details */
+.batch-title {
+  white-space: nowrap;
+}
+
+.subject-badge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.15rem;
+  background-color: #eef3ff;
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.teacher-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.teacher-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: #e8efff;
+  color: #3154a1;
+  font-size: 0.6rem;
+  font-weight: 500;
+}
+
+.batch-schedule {
+  color: #475569;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.monthly-fee {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Smaller screens */
+@media (max-width: 760px) {
+  .courses-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .courses-card-top {
+    padding: 1rem;
+  }
+
+  .table-heading {
+    padding: 0.75rem 1rem;
+  }
+
+  .table-cell {
+    padding: 1rem;
+  }
+}
