@@ -17,62 +17,105 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="headers-nav">
-      <nav id="sidebar">
-        <div class="sidebar-top">
-          <div class="logo-box">
-            <div class="logo"><i class="fa-brands fa-leanpub"></i></div>
-            <div class="logo-text">
-              <h4>EduTrack</h4>
-              <p>Academic Portal</p>
-            </div>
-          </div>
-          <div class="nav-links">
-            <h4>Menu</h4>
-            <div class="links active">
-              <a href="admin_dashboard.html"
-                ><i class="fa-solid fa-table-cells-large"></i> Dashboard</a
-              >
-            </div>
-            <div class="links">
-              <a href=""><i class="fa-solid fa-users"></i>User Management</a>
-            </div>
-            <div class="links">
-              <a href=""
-                ><i class="fa-solid fa-book-open"></i>Courses & Batches</a
-              >
-            </div>
-            <div class="links">
-              <a href=""
-                ><i class="fa-solid fa-user-check"></i>Student Enrollment</a
-              >
-            </div>
+  <body class="full-site">
+    <nav id="sidebar">
+      <div class="sidebar-top">
+        <div class="logo-box">
+          <div class="logo"><i class="fa-brands fa-leanpub"></i></div>
+          <div class="logo-text">
+            <h4>EduTrack</h4>
+            <p>Academic Portal</p>
           </div>
         </div>
-        <div class="sidebar-bottom">
-          <button>
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
-          </button>
+        <div class="nav-links">
+          <h4>Menu</h4>
+          <div class="links active">
+            <a href="admin_dashboard.html"
+              ><i class="fa-solid fa-table-cells-large"></i> Dashboard</a
+            >
+          </div>
+          <div class="links">
+            <a href=""><i class="fa-solid fa-users"></i>User Management</a>
+          </div>
+          <div class="links">
+            <a href=""
+              ><i class="fa-solid fa-book-open"></i>Courses & Batches</a
+            >
+          </div>
+          <div class="links">
+            <a href=""
+              ><i class="fa-solid fa-user-check"></i>Student Enrollment</a
+            >
+          </div>
         </div>
-      </nav>
-      <div class="main-content">
-        <header>
-          <h4>Operations / <span>Overview</span></h4>
-          <div class="user-box">
-            <div class="user-logo">AU</div>
-            <div class="logo-text">
-              <h4>Admin User</h4>
-              <p>Main Campus</p>
+      </div>
+      <div class="sidebar-bottom">
+        <button>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
+        </button>
+      </div>
+    </nav>
+    <div class="main-content">
+      <header>
+        <h4>Operations / <span>Overview</span></h4>
+        <div class="user-box">
+          <div class="user-logo">AU</div>
+          <div class="logo-text">
+            <h4>Admin User</h4>
+            <p>Main Campus</p>
+          </div>
+        </div>
+      </header>
+      <!-- Main Page -->
+      <div class="content">
+        <div class="page-top">
+          <div class="page-text">
+            <h3 class="heading">Academic Operations</h3>
+            <p>
+              Real-time supervision of faculty schedules, student cohorts, and
+              course enrollments.
+            </p>
+          </div>
+          <button><i class="fa-solid fa-plus"></i>New Enrollment</button>
+        </div>
+        <!-- Details Card -->
+        <div class="detail-card-box">
+          <div class="detail-card">
+            <div class="card-title">
+              <h5>Active Students</h5>
+              <span><i class="fa-solid fa-user-group"></i></span>
+            </div>
+            <p>124</p>
+            <div class="card-footer">
+              <span>+12 this month</span>
+              ·
+              <span>96.8% attendance rate</span>
             </div>
           </div>
-        </header>
-        <div class="content">
-          <h3>Academic Operations</h3>
-          <p>
-            Real-time supervision of faculty schedules, student cohorts, and
-            course enrollments.
-          </p>
+          <div class="detail-card">
+            <div class="card-title">
+              <h5>Faculty Teachers</h5>
+              <span><i class="fa-brands fa-google-scholar"></i></span>
+            </div>
+            <p>8</p>
+            <div class="card-footer">
+              <span>4 Core Faculties</span>
+              ·
+              <span>100% active assignments</span>
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="card-title">
+              <h5>Active Batches</h5>
+              <span><i class="fa-solid fa-layer-group"></i></span>
+            </div>
+            <p>12</p>
+            <div class="card-footer">
+              <span>9 Weekday</span>
+              ·
+              <span>3 Weekend batches</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
