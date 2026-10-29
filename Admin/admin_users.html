@@ -69,7 +69,119 @@
         </div>
       </header>
       <!-- Main Page -->
-      <div class="content"></div>
+      <div class="content">
+        <div class="page-top">
+          <div class="page-text">
+            <h3 class="heading">User Management</h3>
+            <p>
+              Manage student, faculty, and administrative staff accounts,
+              permissions, and directory status.
+            </p>
+          </div>
+          <button type="button">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>Create User
+          </button>
+        </div>
+
+        <!-- Directory Filters -->
+        <div class="filter-box">
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input
+              type="search"
+              placeholder="Search by name or username"
+              aria-label="Search by name or username"
+            />
+          </div>
+          <select aria-label="Filter by role">
+            <option value="">All Roles</option>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+            <option value="accountant">Accountant</option>
+          </select>
+          <select aria-label="Filter by status">
+            <option value="">All Statuses</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select>
+          <p class="directory-text">
+            Showing 8 active &amp; inactive directory records
+          </p>
+        </div>
+
+        <!-- Users Table -->
+        <div class="users-box">
+          <div class="table-box">
+            <table class="users-table" aria-label="User directory">
+              <thead>
+                <tr>
+                  <th scope="col">Full Name</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" class="action-heading">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="name-box">
+                      <span class="user-avatar student">RU</span>
+                      <span>Rahim Uddin</span>
+                    </div>
+                  </td>
+                  <td class="username-text">rahim.u</td>
+                  <td class="phone-text">01711-000001</td>
+                  <td><span class="role student">Student</span></td>
+                  <td><span class="status active">Active</span></td>
+                  <td>
+                    <div class="action-box">
+                      <button type="button" aria-label="Edit Rahim Uddin">
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        class="deactivate"
+                        aria-label="Deactivate Rahim Uddin"
+                      >
+                        Deactivate
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="name-box">
+                      <span class="user-avatar inactive">TH</span>
+                      <span>Tanvir Hasan</span>
+                    </div>
+                  </td>
+                  <td class="username-text">tanvir.h</td>
+                  <td class="phone-text">01611-456789</td>
+                  <td><span class="role student">Student</span></td>
+                  <td><span class="status inactive">Inactive</span></td>
+                  <td>
+                    <div class="action-box">
+                      <button type="button" aria-label="Edit Tanvir Hasan">
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        class="activate"
+                        aria-label="Activate Tanvir Hasan"
+                      >
+                        Activate
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
