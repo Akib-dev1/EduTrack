@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accountant | Fee Collection</title>
+    <link rel="stylesheet" href="style1.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="full-site">
+    <nav id="sidebar">
+      <div class="sidebar-top">
+        <div class="logo-box">
+          <div class="logo"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="logo-text">
+            <h4>EduTrack</h4>
+            <p>Finance Portal</p>
+          </div>
+        </div>
+        <div class="nav-links">
+          <h4>Menu</h4>
+          <div class="links">
+            <a href="dashboard.html"
+              ><i class="fa-solid fa-table-cells-large"></i>Dashboard</a
+            >
+          </div>
+          <div class="links active">
+            <a href="fee-collection.html"
+              ><i class="fa-solid fa-user-group"></i>Fee Collection</a
+            >
+          </div>
+          <div class="links">
+            <a href="accountant_payment-history.html"
+              ><i class="fa-regular fa-file-lines"></i>Payment History</a
+            >
+          </div>
+          <div class="links">
+            <a href="accountant_due-fees.html"
+              ><i class="fa-regular fa-clock"></i>Due Fees</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-bottom">
+        <button>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign out
+        </button>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <header>
+        <h4>Finance / <span>Fee Collection</span></h4>
+        <div class="header-right">
+          <div class="notify">
+            <i class="fa-regular fa-bell"></i>
+            <span class="notify-dot"></span>
+          </div>
+          <div class="user-box">
+            <div class="user-logo">SI</div>
+            <div class="user-text">
+              <h4>Sadia Islam</h4>
+              <p>Accountant · Dhanmondi Campus</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Page -->
+      <div class="content">
+        <div class="page-top">
+          <div class="page-text">
+            <h3 class="heading">Fee Collection</h3>
+            <p>Record a payment received at the center.</p>
+          </div>
+          <div class="page-actions">
+            <button type="button" class="outline-button">
+              <i class="fa-regular fa-circle-question"></i>View Due Fees
+            </button>
+            <button type="button" class="outline-button">
+              <i class="fa-regular fa-file-lines"></i>Payment History
+            </button>
+          </div>
+        </div>
+
+        <!-- Fee Form -->
+        <div class="form-box">
+          <div class="form-top">
+            <div class="form-title">
+              <h4>Record Student Fee Payment</h4>
+              <p>Enter counter transaction details to update student balance ledger.</p>
+            </div>
+            <span class="live-badge"><span class="live-dot"></span>Active Ledger</span>
+          </div>
+
+          <form>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="student">Select Student <span class="required">*</span></label>
+                <select id="student">
+                  <option>Rahim Uddin (ID: STU-2049)</option>
+                  <option>Nusrat Jahan (ID: STU-2050)</option>
+                  <option>Tanvir Hasan (ID: STU-2051)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="batch">Select Enrollment / Batch <span class="required">*</span></label>
+                <select id="batch">
+                  <option>Physics Morning A (HSC-25) — Prof. Anisur Rahman</option>
+                  <option>Math Evening B (HSC-25) — Prof. Karim Hossain</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="billing-month-input">Billing Month <span class="required">*</span></label>
+                <div class="input-box">
+                  <input type="text" id="billing-month-input" value="November 2026" />
+                  <i class="fa-regular fa-calendar"></i>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="payment-date">Payment Date <span class="required">*</span></label>
+                <div class="input-box">
+                  <input type="text" id="payment-date" value="04 Nov 2026" />
+                  <i class="fa-regular fa-calendar"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Balance Summary -->
+            <div class="balance-box">
+              <div class="balance-item line">
+                <h5>1. Expected Fee</h5>
+                <p class="balance-amount">৳1,500</p>
+                <span>Regular fee for Physics Morning A</span>
+              </div>
+
+              <div class="balance-item line">
+                <h5>2. Already Paid</h5>
+                <p class="balance-amount">৳500</p>
+                <span>Recorded on 01 Nov 2026</span>
+              </div>
+
+              <div class="balance-item">
+                <h5>
+                  3. Remaining Balance
+                  <span class="pending-badge">Pending</span>
+                </h5>
+                <p class="balance-amount orange-text">৳1,000</p>
+                <span class="orange-text">Due before 10 Nov 2026</span>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="amount">Payment Amount <span class="required">*</span></label>
+                <div class="input-box">
+                  <span class="taka-sign">৳</span>
+                  <input type="number" id="amount" value="500" />
+                  <span class="currency">BDT</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="method">Payment Method / Reference <span class="required">*</span></label>
+                <select id="method">
+                  <option>Cash Counter (Receipt #REC-8842)</option>
+                  <option>bKash (Transaction ID)</option>
+                  <option>Bank Transfer (Reference No.)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-bottom">
+              <p class="form-note">
+                <i class="fa-regular fa-circle-question"></i>
+                Partial payments are allowed. Payment cannot exceed the remaining balance of
+                <strong>৳1,000</strong>.
+              </p>
+              <div class="form-buttons">
+                <button type="reset" class="outline-button">Clear Form</button>
+                <button type="submit" class="dark-button">
+                  <i class="fa-solid fa-check"></i>Save Payment
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
