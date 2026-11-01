@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accountant | Payment History</title>
+    <link rel="stylesheet" href="style2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="full-site">
+    <nav id="sidebar">
+      <div class="sidebar-top">
+        <div class="logo-box">
+          <div class="logo"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="logo-text">
+            <h4>EduTrack</h4>
+            <p>Finance Portal</p>
+          </div>
+        </div>
+        <div class="nav-links">
+          <h4>Menu</h4>
+          <div class="links">
+            <a href="dashboard.html"
+              ><i class="fa-solid fa-table-cells-large"></i>Dashboard</a
+            >
+          </div>
+          <div class="links">
+            <a href="fee-collection.html"
+              ><i class="fa-solid fa-user-group"></i>Fee Collection</a
+            >
+          </div>
+          <div class="links active">
+            <a href="payment-history.html"
+              ><i class="fa-regular fa-file-lines"></i>Payment History</a
+            >
+          </div>
+          <div class="links">
+            <a href="accountant_due-fees.html"
+              ><i class="fa-regular fa-clock"></i>Due Fees</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-bottom">
+        <button>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign out
+        </button>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <header>
+        <h4>Finance / <span>Payment History</span></h4>
+        <div class="header-right">
+          <div class="notify">
+            <i class="fa-regular fa-bell"></i>
+            <span class="notify-dot"></span>
+          </div>
+          <div class="user-box">
+            <div class="user-logo">SI</div>
+            <div class="user-text">
+              <h4>Sadia Islam</h4>
+              <p>Accountant · Dhanmondi Campus</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Page -->
+      <div class="content">
+        <div class="page-top">
+          <div class="page-text">
+            <h3 class="heading">Payment History</h3>
+            <p>View and correct recorded payments.</p>
+          </div>
+          <div class="page-actions">
+            <button type="button" class="outline-button">
+              <i class="fa-solid fa-download"></i>Export CSV / PDF
+            </button>
+            <button type="button" class="dark-button">
+              <i class="fa-solid fa-plus"></i>Collect Fee
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Box -->
+        <div class="filter-box">
+          <div class="filter-form">
+            <div class="filter-group">
+              <label for="student-filter">Search / Student Filter</label>
+              <select id="student-filter">
+                <option>All Students</option>
+                <option>Rahim Uddin</option>
+                <option>Nusrat Jahan</option>
+                <option>Tanvir Hasan</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="month-filter">Billing Month</label>
+              <select id="month-filter">
+                <option>All Months</option>
+                <option>November 2026</option>
+                <option>October 2026</option>
+                <option>September 2026</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="batch-filter">Batch Filter</label>
+              <select id="batch-filter">
+                <option>All Batches</option>
+                <option>Physics Morning A</option>
+                <option>English Batch C</option>
+                <option>Math Evening B</option>
+              </select>
+            </div>
+
+            <div class="filter-buttons">
+              <button type="button" class="dark-button">Filter Results</button>
+              <button type="button" class="outline-button">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment History Table -->
+        <div class="payment-box">
+          <div class="table-box">
+            <table class="payment-table">
+              <thead>
+                <tr>
+                  <th>Payment<br />ID</th>
+                  <th>Student</th>
+                  <th>Batch</th>
+                  <th>Billing<br />Month</th>
+                  <th>Payment<br />Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th class="action-heading">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="payment-id">PAY-0105</td>
+                  <td class="student-name">Rahim Uddin</td>
+                  <td>Physics Morning A</td>
+                  <td>Nov 2026</td>
+                  <td class="date-text">03 Nov 2026</td>
+                  <td class="amount-text">৳1,500</td>
+                  <td><span class="status paid">Paid</span></td>
+                  <td>
+                    <div class="action-box column">
+                      <button type="button">
+                        <i class="fa-regular fa-pen-to-square"></i> Edit
+                      </button>
+                      <button type="button" class="receipt-button">
+                        Receipt
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="payment-id">PAY-0104</td>
+                  <td class="student-name">Nusrat Jahan</td>
+                  <td>English Batch C</td>
+                  <td>Oct 2026</td>
+                  <td class="date-text">02 Nov 2026</td>
+                  <td class="amount-text">৳500</td>
+                  <td><span class="status paid">Paid</span></td>
+                  <td>
+                    <div class="action-box column">
+                      <button type="button">
+                        <i class="fa-regular fa-pen-to-square"></i> Edit
+                      </button>
+                      <button type="button" class="receipt-button">
+                        Receipt
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="payment-id">PAY-0103</td>
+                  <td class="student-name">Tanvir Hasan</td>
+                  <td>Math Evening B</td>
+                  <td>Nov 2026</td>
+                  <td class="date-text">01 Nov 2026</td>
+                  <td class="amount-text">৳1,200</td>
+                  <td><span class="status paid">Paid</span></td>
+                  <td>
+                    <div class="action-box column">
+                      <button type="button">
+                        <i class="fa-regular fa-pen-to-square"></i> Edit
+                      </button>
+                      <button type="button" class="receipt-button">
+                        Receipt
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="payment-id">PAY-0102</td>
+                  <td class="student-name">Farhana Akter</td>
+                  <td>Medical Bio Core</td>
+                  <td>Nov 2026</td>
+                  <td class="date-text">01 Nov 2026</td>
+                  <td class="amount-text">৳2,000</td>
+                  <td><span class="status paid">Paid</span></td>
+                  <td>
+                    <div class="action-box column">
+                      <button type="button">
+                        <i class="fa-regular fa-pen-to-square"></i> Edit
+                      </button>
+                      <button type="button" class="receipt-button">
+                        Receipt
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="payment-id">PAY-0101</td>
+                  <td class="student-name">Mahir Faisal</td>
+                  <td>HSC-25<br />Chemistry Spark</td>
+                  <td>Oct 2026</td>
+                  <td class="date-text">31 Oct 2026</td>
+                  <td class="amount-text">৳1,500</td>
+                  <td><span class="status paid">Paid</span></td>
+                  <td>
+                    <div class="action-box column">
+                      <button type="button">
+                        <i class="fa-regular fa-pen-to-square"></i> Edit
+                      </button>
+                      <button type="button" class="receipt-button">
+                        Receipt
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="payment-id">PAY-0100</td>
+                  <td class="student-name">Sadman Sakib</td>
+                  <td>BUET Math Advanced</td>
+                  <td>Nov 2026</td>
+                  <td class="date-text">30 Oct 2026</td>
+                  <td class="amount-text">৳1,800</td>
+                  <td><span class="status paid">Paid</span></td>
+                  <td>
+                    <div class="action-box column">
+                      <button type="button">
+                        <i class="fa-regular fa-pen-to-square"></i> Edit
+                      </button>
+                      <button type="button" class="receipt-button">
+                        Receipt
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="payment-id">PAY-0099</td>
+                  <td class="student-name">Anika<br />Tabassum</td>
+                  <td>SSC-26 Math Pioneer</td>
+                  <td>Nov 2026</td>
+                  <td class="date-text">29 Oct 2026</td>
+                  <td class="amount-text">৳1,000</td>
+                  <td><span class="status paid">Paid</span></td>
+                  <td>
+                    <div class="action-box column">
+                      <button type="button">
+                        <i class="fa-regular fa-pen-to-square"></i> Edit
+                      </button>
+                      <button type="button" class="receipt-button">
+                        Receipt
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="payment-id">PAY-0098</td>
+                  <td class="student-name">Mehedi Hasan</td>
+                  <td>General Science<br />Morning</td>
+                  <td>Oct 2026</td>
+                  <td class="date-text">28 Oct 2026</td>
+                  <td class="amount-text">৳900</td>
+                  <td><span class="status paid">Paid</span></td>
+                  <td>
+                    <div class="action-box column">
+                      <button type="button">
+                        <i class="fa-regular fa-pen-to-square"></i> Edit
+                      </button>
+                      <button type="button" class="receipt-button">
+                        Receipt
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
