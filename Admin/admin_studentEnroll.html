@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | Student Enrollment</title>
+    <link rel="stylesheet" href="CSS/admin.css" />
+    <link rel="stylesheet" href="CSS/admin_enrollment.css" />
+    <script
+      src="https://kit.fontawesome.com/2f2e6479ad.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="../assets/logo.png" type="image/x-icon" />
+  </head>
+  <body class="full-site">
+    <nav id="sidebar">
+      <div class="sidebar-top">
+        <div class="logo-box">
+          <div class="logo"><i class="fa-brands fa-leanpub"></i></div>
+          <div class="logo-text">
+            <h4>EduTrack</h4>
+            <p>Academic Portal</p>
+          </div>
+        </div>
+        <div class="nav-links">
+          <h4>Menu</h4>
+          <div class="links">
+            <a href="admin_dashboard.html"
+              ><i class="fa-solid fa-table-cells-large"></i> Dashboard</a
+            >
+          </div>
+          <div class="links">
+            <a href="admin_users.html"
+              ><i class="fa-solid fa-users"></i>User Management</a
+            >
+          </div>
+          <div class="links">
+            <a href="admin_courses-batches.html"
+              ><i class="fa-solid fa-book-open"></i>Courses & Batches</a
+            >
+          </div>
+          <div class="links active">
+            <a href="admin_studentEnroll.html"
+              ><i class="fa-solid fa-user-check"></i>Student Enrollment</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-bottom">
+        <button>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out
+        </button>
+      </div>
+    </nav>
+    <div class="main-content">
+      <header>
+        <h4>Operations / <span>Student Enrollment</span></h4>
+        <div class="user-box">
+          <div class="user-logo">AU</div>
+          <div class="logo-text">
+            <h4>Admin User</h4>
+            <p>Main Campus</p>
+          </div>
+        </div>
+      </header>
+      <!-- Main Page -->
+      <div class="content enrollment-page">
+        <!-- Page Heading -->
+        <div class="en-page-top">
+          <div>
+            <h1 class="en-heading">Student Enrollment</h1>
+            <p class="en-description">
+              Manage student enrollments, batch assignments, monthly fees, and
+              enrollment periods.
+            </p>
+          </div>
+
+          <button type="button" class="en-primary-button">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i>
+            Enroll Student
+          </button>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="en-cards">
+          <div class="en-card">
+            <div class="en-card-text">
+              <h2 class="en-card-title">Active Batches</h2>
+              <p class="en-card-number">1</p>
+              <p class="en-card-note">Batches with active enrollments</p>
+            </div>
+
+            <div class="en-card-icon">
+              <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <div class="en-card">
+            <div class="en-card-text">
+              <h2 class="en-card-title">Active Enrollments</h2>
+              <p class="en-card-number">1</p>
+              <p class="en-card-note">1 student currently enrolled</p>
+            </div>
+
+            <div class="en-card-icon">
+              <i class="fa-solid fa-user-check" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <div class="en-card">
+            <div class="en-card-text">
+              <h2 class="en-card-title">Monthly Fees</h2>
+              <p class="en-card-number">৳1,500</p>
+              <p class="en-card-note">Total fees from active enrollments</p>
+            </div>
+
+            <div class="en-card-icon">
+              <i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <div class="en-card">
+            <div class="en-card-text">
+              <h2 class="en-card-title">Ended Enrollments</h2>
+              <p class="en-card-number">1</p>
+              <p class="en-card-note">Previous enrollment records</p>
+            </div>
+
+            <div class="en-card-icon">
+              <i class="fa-solid fa-box-archive" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="en-toolbar">
+          <div class="en-search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input
+              type="search"
+              id="enrollment-search"
+              placeholder="Search by student name or ID..."
+              aria-label="Search enrollments by student name or ID"
+            />
+          </div>
+
+          <select
+            id="enrollment-batch"
+            class="en-select en-batch-select"
+            aria-label="Filter enrollments by batch"
+          >
+            <option value="">All Batches</option>
+            <option value="physics-morning-a">Physics Morning A</option>
+            <option value="math-pioneer-01">Math Pioneer Batch 01</option>
+          </select>
+
+          <select
+            id="enrollment-status"
+            class="en-select en-status-select"
+            aria-label="Filter enrollments by status"
+          >
+            <option value="">All Statuses</option>
+            <option value="active">Active</option>
+            <option value="ended">Ended</option>
+          </select>
+
+          <p class="en-filter-note">
+            <span class="en-blue-dot" aria-hidden="true"></span>
+            1 active · 1 ended
+          </p>
+        </div>
+
+        <!-- Enrollment Records -->
+        <div class="en-table-card">
+          <div class="en-table-scroll">
+            <table class="en-table" aria-label="Student enrollment records">
+              <thead>
+                <tr>
+                  <th scope="col">Student</th>
+                  <th scope="col">Batch</th>
+                  <th scope="col">Course</th>
+                  <th scope="col">Start Month</th>
+                  <th scope="col">End Month</th>
+                  <th scope="col" class="en-fee-column">Monthly Fee</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" class="en-actions-column">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <!-- Active Enrollment -->
+                <tr>
+                  <td>
+                    <div class="en-student">
+                      <div class="en-avatar" aria-hidden="true">RU</div>
+                      <div>
+                        <p class="en-student-name">Rahim Uddin</p>
+                        <p class="en-student-id">STU-2026-081</p>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="en-batch-name">
+                      <span>Physics</span>
+                      <span>Morning A</span>
+                    </div>
+                  </td>
+
+                  <td>
+                    <span class="en-course">HSC Physics</span>
+                  </td>
+
+                  <td>
+                    <time datetime="2026-01">Jan 2026</time>
+                  </td>
+
+                  <td>Ongoing</td>
+
+                  <td class="en-fee-column">৳1,500</td>
+
+                  <td>
+                    <span class="en-status en-status-active">
+                      <span class="en-status-dot"></span>
+                      Active
+                    </span>
+                  </td>
+
+                  <td>
+                    <div class="en-actions">
+                      <button type="button" class="en-edit-button">
+                        Edit Dates
+                      </button>
+
+                      <button type="button" class="en-end-button">
+                        End Enrollment
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Ended Enrollment -->
+                <tr class="en-soft-row">
+                  <td>
+                    <div class="en-student">
+                      <div class="en-avatar en-avatar-light">TH</div>
+                      <div>
+                        <p class="en-student-name">Tanvir Hasan</p>
+                        <p class="en-student-id">STU-2025-119</p>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>
+                    <div class="en-batch-name">
+                      <span>Math Pioneer</span>
+                      <span>Batch 01</span>
+                    </div>
+                  </td>
+
+                  <td>
+                    <span class="en-course">SSC Math</span>
+                  </td>
+
+                  <td>
+                    <time datetime="2025-01">Jan 2025</time>
+                  </td>
+
+                  <td>
+                    <time datetime="2025-12">Dec 2025</time>
+                  </td>
+
+                  <td class="en-fee-column">৳1,200</td>
+
+                  <td>
+                    <span class="en-status en-status-ended">
+                      <span class="en-status-dot" aria-hidden="true"></span>
+                      Ended
+                    </span>
+                  </td>
+
+                  <td>
+                    <div class="en-actions">
+                      <button type="button" class="en-reenroll-button">
+                        Re-enroll
+                      </button>
+
+                      <button type="button" class="en-edit-button">
+                        Edit Dates
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="en-table-footer">Showing 2 enrollment records</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -248,6 +248,7 @@
   font-weight: 300;
   color: #334155;
   cursor: pointer;
+  flex-grow: 1;
 }
 .action-box > button.deactivate {
   color: #ef4444;
@@ -269,36 +270,4 @@
 /* Keep the directory table inside the flexible main content. */
 .main-content {
   min-width: 0;
-}
-@media (max-width: 1100px) {
-  .filter-box {
-    flex-wrap: wrap;
-  }
-  .search-box {
-    flex-basis: 100%;
-  }
-  .directory-text {
-    margin-left: 0rem;
-  }
-  .page-top {
-    align-items: flex-start;
-  }
-}
-@media (max-width: 600px) {
-  .main-content > .content {
-    padding: 1.5rem 1rem;
-  }
-  .page-top {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .heading {
-    font-size: 1.5rem;
-  }
-  .filter-box {
-    padding: 0.75rem;
-  }
-  .directory-text {
-    width: 100%;
-  }
 }
