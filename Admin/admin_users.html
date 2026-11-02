@@ -79,28 +79,24 @@
               permissions, and directory status.
             </p>
           </div>
-          <button type="button">
-            <i class="fa-solid fa-plus" aria-hidden="true"></i>Create User
+          <button id="create-user-btn">
+            <i class="fa-solid fa-plus"></i>Create User
           </button>
         </div>
 
         <!-- Directory Filters -->
         <div class="filter-box">
           <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-            <input
-              type="search"
-              placeholder="Search by name or username"
-              aria-label="Search by name or username"
-            />
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search by name or username" />
           </div>
-          <select aria-label="Filter by role">
+          <select>
             <option value="">All Roles</option>
             <option value="student">Student</option>
             <option value="teacher">Teacher</option>
             <option value="accountant">Accountant</option>
           </select>
-          <select aria-label="Filter by status">
+          <select>
             <option value="">All Statuses</option>
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
@@ -113,7 +109,7 @@
         <!-- Users Table -->
         <div class="users-box">
           <div class="table-box">
-            <table class="users-table" aria-label="User directory">
+            <table class="users-table">
               <thead>
                 <tr>
                   <th scope="col">Full Name</th>
@@ -138,8 +134,10 @@
                   <td><span class="status active">Active</span></td>
                   <td>
                     <div class="action-box">
-                      <button>Edit</button>
-                      <button class="deactivate">Deactivate</button>
+                      <button id="edit-btn">Edit</button>
+                      <button class="deactivate" id="deactivate-btn">
+                        Deactivate
+                      </button>
                     </div>
                   </td>
                 </tr>
@@ -165,8 +163,228 @@
               </tbody>
             </table>
           </div>
+          <!-- Empty Table Design -->
+          <div id="usersEmptyState" class="um-empty-state um-hidden">
+            <div class="um-empty-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <h3 id="usersEmptyTitle" class="um-empty-title">
+              No users match your search
+            </h3>
+
+            <p id="usersEmptyDescription" class="um-empty-description">
+              Try changing your search or clearing your filters.
+            </p>
+
+            <button
+              id="clearUserFilters"
+              type="button"
+              class="um-button um-button-light"
+            >
+              Clear All Filters
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <!-- CREATE USER MODAL -->
+    <div id="createUserModal" class="um-modal">
+      <form id="createUserForm" class="um-modal-box">
+        <div class="um-modal-top">
+          <h3>Create New User</h3>
+
+          <button id="create-close" class="um-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="um-modal-body">
+          <div class="um-field">
+            <label for="createFullName">Full Name</label>
+            <input
+              id="createFullName"
+              name="fullName"
+              type="text"
+              placeholder="Enter full name"
+              required
+            />
+          </div>
+
+          <div class="um-field">
+            <label for="createUsername">Username</label>
+            <input
+              id="createUsername"
+              name="username"
+              type="text"
+              placeholder="Enter username"
+              required
+            />
+          </div>
+
+          <div class="um-field-row">
+            <div class="um-field">
+              <label for="createPhone">Phone Number</label>
+              <input
+                id="createPhone"
+                name="phone"
+                type="tel"
+                placeholder="01712-998877"
+                required
+              />
+            </div>
+
+            <div class="um-field">
+              <label for="createRole">Role</label>
+              <select id="createRole" name="role" required>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="um-field">
+            <label for="createPassword">Initial Password</label>
+            <input
+              id="createPassword"
+              name="password"
+              type="password"
+              placeholder="Enter initial password"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+
+          <div class="um-field">
+            <p class="um-label">Account Status</p>
+
+            <div class="um-radio-group">
+              <label class="um-radio-option">
+                <input type="radio" name="status" value="active" checked />
+                Active
+              </label>
+
+              <label class="um-radio-option">
+                <input type="radio" name="status" value="inactive" />
+                Inactive
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="um-modal-footer">
+          <button class="um-button um-button-light" id="user-cancel">
+            Cancel
+          </button>
+
+          <button
+            id="createUserButton"
+            type="submit"
+            class="um-button um-button-dark"
+          >
+            Create User
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- EDIT USER MODAL -->
+    <div id="editUserModal" class="um-modal">
+      <form id="editUserForm" class="um-modal-box">
+        <div class="um-modal-top">
+          <h3>Edit User</h3>
+
+          <button class="um-close" id="edit-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="um-modal-body">
+          <input id="editUserId" name="userId" type="hidden" />
+
+          <div class="um-field">
+            <label for="editFullName">Full Name</label>
+            <input id="editFullName" name="fullName" type="text" required />
+          </div>
+
+          <div class="um-field">
+            <label for="editPhone">Phone Number</label>
+            <input id="editPhone" name="phone" type="tel" required />
+          </div>
+
+          <div class="um-field">
+            <label for="editUsername">Username (Immutable)</label>
+            <input id="editUsername" type="text" disabled />
+          </div>
+
+          <div class="um-field">
+            <label for="editRole">Role</label>
+            <select id="editRole" disabled>
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="admin">Admin</option>
+            </select>
+
+            <p class="um-field-note">Role cannot be changed after creation.</p>
+          </div>
+        </div>
+
+        <div class="um-modal-footer">
+          <button class="um-button um-button-light" id="edit-cancel">
+            Cancel
+          </button>
+
+          <button
+            id="saveUserButton"
+            type="submit"
+            class="um-button um-button-dark"
+          >
+            Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- DEACTIVATE USER MODAL -->
+    <div id="deactivateUserModal" class="um-modal">
+      <form id="deactivateUserForm" class="um-modal-box">
+        <div class="um-confirm-body">
+          <div class="um-warning-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+
+          <div>
+            <h3 class="um-confirm-title">Deactivate this account?</h3>
+
+            <p class="um-confirm-text">
+              Are you sure you want to deactivate
+              <span id="deactivateUserName">this user</span>'s account?
+              Historical records will be kept, but the user will lose access to
+              the portal immediately.
+            </p>
+          </div>
+        </div>
+
+        <div class="um-modal-footer">
+          <button
+            class="um-button um-button-light"
+            id="deactivate-cancel"
+            type="button"
+          >
+            Cancel
+          </button>
+
+          <button
+            id="deactivateUserButton"
+            type="submit"
+            class="um-button um-button-danger"
+          >
+            Deactivate Account
+          </button>
+        </div>
+      </form>
+    </div>
+    <script src="JS/admin_users.js"></script>
   </body>
 </html>

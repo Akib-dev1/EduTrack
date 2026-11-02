@@ -271,3 +271,250 @@
 .main-content {
   min-width: 0;
 }
+/* Hidden by default */
+.um-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background-color: rgba(15, 23, 42, 0.4);
+  z-index: 1000;
+
+  /* Centers the white card when display becomes flex */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add this one class to show a modal */
+.um-modal.um-show {
+  display: flex;
+}
+
+.um-modal-box {
+  width: 100%;
+  max-width: 28rem;
+  max-height: 100%;
+  overflow-y: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background-color: white;
+  color: #0f172a;
+  box-shadow: 0 1rem 3rem rgba(15, 23, 42, 0.15);
+}
+
+.um-modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.um-modal-top > h3 {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.um-close {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 0.35rem;
+  background-color: transparent;
+  color: #94a3b8;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.um-close:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.um-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.um-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.um-field > label,
+.um-label {
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.um-field > input,
+.um-field > select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.4rem;
+  background-color: white;
+  color: #0f172a;
+  font-size: 0.9rem;
+}
+
+.um-field > input:focus,
+.um-field > select:focus {
+  outline: 2px solid #cbd5e1;
+  outline-offset: 1px;
+}
+
+.um-field > input:disabled,
+.um-field > select:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  opacity: 1;
+}
+
+.um-field-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.um-field-row > .um-field {
+  flex: 1;
+}
+
+.um-field-note {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #94a3b8;
+}
+
+.um-radio-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.um-radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #475569;
+  cursor: pointer;
+}
+
+.um-radio-option > input {
+  accent-color: #0f172a;
+}
+
+.um-modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #f1f5f9;
+  background-color: #f8fafc;
+}
+
+.um-button {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid transparent;
+  border-radius: 0.4rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.um-button-light {
+  border-color: #e2e8f0;
+  background-color: white;
+  color: #475569;
+}
+
+.um-button-dark {
+  background-color: #0f172a;
+  color: white;
+}
+
+.um-button-danger {
+  background-color: #dc2626;
+  color: white;
+}
+
+.um-confirm-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 1.25rem;
+}
+
+.um-warning-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid #fee2e2;
+  border-radius: 50%;
+  background-color: #fef2f2;
+  color: #ef4444;
+}
+
+.um-confirm-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.um-confirm-text {
+  margin-top: 0.5rem;
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+.um-empty-state {
+  padding: 3rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background-color: white;
+  text-align: center;
+}
+
+.um-empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  font-size: 1.3rem;
+}
+
+.um-empty-title {
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.um-empty-description {
+  max-width: 24rem;
+  margin: 0 auto 1.25rem;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.um-hidden {
+  display: none;
+}
