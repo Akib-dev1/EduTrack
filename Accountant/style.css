@@ -204,6 +204,11 @@ header > h4 > span {
   padding: 2rem 2.5rem;
 }
 
+
+
+
+
+
 /* ---------- Page top ---------- */
 .heading {
   font-size: 2rem;
@@ -577,26 +582,6 @@ header > h4 > span {
 
 .action-box > button:hover {
   text-decoration: underline;
-}
-
-/* ---------- Pagination ---------- */
-.pagination-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.25rem 2rem;
-}
-
-.pagination-box > p {
-  font-size: 0.9rem;
-  color: #64748b;
-}
-
-.pagination {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
 }
 
 .page-number {

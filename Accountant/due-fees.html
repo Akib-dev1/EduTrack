@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accountant | Due Fees</title>
+    <link rel="stylesheet" href="style3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="full-site">
+    <nav id="sidebar">
+      <div class="sidebar-top">
+        <div class="logo-box">
+          <div class="logo"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="logo-text">
+            <h4>EduTrack</h4>
+            <p>Finance Portal</p>
+          </div>
+        </div>
+        <div class="nav-links">
+          <h4>Menu</h4>
+          <div class="links">
+            <a href="dashboard.html"
+              ><i class="fa-solid fa-table-cells-large"></i>Dashboard</a
+            >
+          </div>
+          <div class="links">
+            <a href="fee-collection.html"
+              ><i class="fa-solid fa-user-group"></i>Fee Collection</a
+            >
+          </div>
+          <div class="links">
+            <a href="payment-history.html"
+              ><i class="fa-regular fa-file-lines"></i>Payment History</a
+            >
+          </div>
+          <div class="links active">
+            <a href="due-fees.html"
+              ><i class="fa-regular fa-clock"></i>Due Fees</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-bottom">
+        <button>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign out
+        </button>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <header>
+        <h4>Finance / <span>Due Fees</span></h4>
+        <div class="header-right">
+          <div class="notify">
+            <i class="fa-regular fa-bell"></i>
+            <span class="notify-dot"></span>
+          </div>
+          <div class="user-box">
+            <div class="user-logo">SI</div>
+            <div class="user-text">
+              <h4>Sadia Islam</h4>
+              <p>Accountant · Dhanmondi Campus</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Page -->
+      <div class="content">
+        <div class="page-top">
+          <div class="page-text">
+            <h3 class="heading">Due Fees</h3>
+            <p>Students with unpaid or partially paid fees.</p>
+          </div>
+          <div class="page-actions">
+            <button type="button" class="outline-button">
+              <i class="fa-solid fa-download"></i>Export CSV / PDF
+            </button>
+            <button type="button" class="dark-button">
+              <i class="fa-solid fa-plus"></i>Collect Fee
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Box -->
+        <div class="filter-box">
+          <div class="filter-field month-field">
+            <label for="due-month">Billing Month</label>
+            <select id="due-month">
+              <option>November 2026</option>
+              <option>October 2026</option>
+              <option>September 2026</option>
+            </select>
+          </div>
+
+          <div class="filter-field search-field">
+            <label for="due-search">Search Query</label>
+            <div class="filter-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="search"
+                id="due-search"
+                placeholder="Search student name, phone, or batch..."
+              />
+            </div>
+          </div>
+
+          <div class="filter-buttons">
+            <button type="button" class="dark-button">Filter Results</button>
+            <button type="button" class="outline-button">Clear</button>
+          </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="detail-card-box">
+          <div class="detail-card">
+            <div class="card-title">
+              <h5>Students With Dues</h5>
+              <span class="icon-gray"
+                ><i class="fa-solid fa-user-group"></i
+              ></span>
+            </div>
+            <p>18</p>
+            <div class="card-note">Across 6 active cohorts</div>
+          </div>
+
+          <div class="detail-card">
+            <div class="card-title">
+              <h5>Total Outstanding</h5>
+              <span class="icon-red"
+                ><i class="fa-solid fa-triangle-exclamation"></i
+              ></span>
+            </div>
+            <p class="red-text">৳ 61,500</p>
+            <div class="card-note red-text">
+              <span class="red-dot"></span>
+              <span>৳ 38,000 overdue from previous terms</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Due Fees Table -->
+        <div class="due-box">
+          <div class="table-box">
+            <table class="due-table">
+              <thead>
+                <tr>
+                  <th>Student<br />Name</th>
+                  <th>Contact<br />Number</th>
+                  <th>Batch</th>
+                  <th class="number-heading">Expected<br />Fee</th>
+                  <th class="number-heading">Paid<br />Amount</th>
+                  <th class="number-heading">Remaining<br />Balance</th>
+                  <th>Status</th>
+                  <th class="action-heading">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="student-name">Rahim Uddin</td>
+                  <td class="contact-text">01711-000001</td>
+                  <td>English Batch C</td>
+                  <td class="number-cell">৳1,000</td>
+                  <td class="number-cell gray-text">৳0</td>
+                  <td class="number-cell red-text">৳1,000</td>
+                  <td><span class="status unpaid">Unpaid</span></td>
+                  <td class="action-cell">
+                    <button type="button" class="collect-button">
+                      Collect Fee
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="student-name">Nusrat Jahan</td>
+                  <td class="contact-text">01811-000002</td>
+                  <td>English Batch C</td>
+                  <td class="number-cell">৳1,000</td>
+                  <td class="number-cell green-text">৳500</td>
+                  <td class="number-cell orange-text">৳500</td>
+                  <td><span class="status partial">Partial</span></td>
+                  <td class="action-cell">
+                    <button type="button" class="collect-button">
+                      Collect Fee
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="student-name">Nusrat Jahan</td>
+                  <td class="contact-text">01811-000002</td>
+                  <td>Physics Morning A</td>
+                  <td class="number-cell">৳1,500</td>
+                  <td class="number-cell gray-text">৳0</td>
+                  <td class="number-cell red-text">৳1,500</td>
+                  <td><span class="status unpaid">Unpaid</span></td>
+                  <td class="action-cell">
+                    <button type="button" class="collect-button">
+                      Collect Fee
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="student-name">Tanvir Hasan</td>
+                  <td class="contact-text">01911-000003</td>
+                  <td>Math Evening B</td>
+                  <td class="number-cell">৳1,200</td>
+                  <td class="number-cell green-text">৳600</td>
+                  <td class="number-cell orange-text">৳600</td>
+                  <td><span class="status partial">Partial</span></td>
+                  <td class="action-cell">
+                    <button type="button" class="collect-button">
+                      Collect Fee
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="student-name">Tanvir Hasan</td>
+                  <td class="contact-text">01911-000003</td>
+                  <td>HSC-25 Chemistry<br />Spark</td>
+                  <td class="number-cell">৳1,500</td>
+                  <td class="number-cell gray-text">৳0</td>
+                  <td class="number-cell red-text">৳1,500</td>
+                  <td><span class="status unpaid">Unpaid</span></td>
+                  <td class="action-cell">
+                    <button type="button" class="collect-button">
+                      Collect Fee
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="student-name">Farhana Akter</td>
+                  <td class="contact-text">01611-000004</td>
+                  <td>Medical Bio Core</td>
+                  <td class="number-cell">৳2,000</td>
+                  <td class="number-cell green-text">৳500</td>
+                  <td class="number-cell orange-text">৳1,500</td>
+                  <td><span class="status partial">Partial</span></td>
+                  <td class="action-cell">
+                    <button type="button" class="collect-button">
+                      Collect Fee
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="student-name">Mehedi Hasan</td>
+                  <td class="contact-text">01511-000005</td>
+                  <td>General Science<br />Morning</td>
+                  <td class="number-cell">৳900</td>
+                  <td class="number-cell gray-text">৳0</td>
+                  <td class="number-cell red-text">৳900</td>
+                  <td><span class="status unpaid">Unpaid</span></td>
+                  <td class="action-cell">
+                    <button type="button" class="collect-button">
+                      Collect Fee
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
