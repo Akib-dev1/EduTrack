@@ -368,3 +368,5 @@ The demo is read-only and does not save changes or provide real sign-in.
 The dashboard fee cards use the current calendar month; attendance uses
 the month and batch selected on its page. The results list includes a
 zero score and an exam with no score entered.
+Student fees are displayed in Bangladeshi taka (BDT) using the sample
+integer-minor-unit amounts in student-data.js.

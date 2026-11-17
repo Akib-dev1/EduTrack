@@ -47,6 +47,10 @@ function getMonthName(month) {
   return date.toLocaleDateString(undefined, { month: "long", year: "numeric" });
 }
 
+function money(amount) {
+  return "৳ " + (amount / 100).toLocaleString("en-BD", { maximumFractionDigits: 2 });
+}
+
 function showText(id, text) {
   var element = document.getElementById(id);
   if (element) {
@@ -64,6 +68,22 @@ function addRow(table, values) {
   table.appendChild(row);
 }
 
+function addStatusRow(table, values, status, statusClass) {
+  var row = document.createElement("tr");
+  for (var i = 0; i < values.length; i++) {
+    var cell = document.createElement("td");
+    cell.textContent = values[i];
+    row.appendChild(cell);
+  }
+  var statusCell = document.createElement("td");
+  var label = document.createElement("span");
+  label.className = "status " + statusClass;
+  label.textContent = status;
+  statusCell.appendChild(label);
+  row.appendChild(statusCell);
+  table.appendChild(row);
+}
+
 function showEmpty(table, columns, message) {
   var row = document.createElement("tr");
   var cell = document.createElement("td");
@@ -75,7 +95,7 @@ function showEmpty(table, columns, message) {
 }
 
 function showProfile() {
-  showText("student-id", data.student.id);
+  showText("student-id", "STU-" + data.student.id);
   showText("student-name", data.student.name);
   showText("student-username", data.student.username);
   showText("student-phone", data.student.phone);
@@ -110,6 +130,8 @@ function showDashboard() {
   var paid = 0;
   var count = 0;
   var table = document.getElementById("dashboard-batches");
+  var feeTable = document.getElementById("fee-breakdown");
+  var unpaid = 0;
 
   for (var i = 0; i < data.enrollments.length; i++) {
     var enrollment = data.enrollments[i];
@@ -119,29 +141,41 @@ function showDashboard() {
     if (enrollment.studentId === studentId && active) {
       var batch = getBatch(enrollment.batchId);
       var course = getCourse(batch.courseId);
+      var batchPaid = 0;
+      for (var j = 0; j < data.payments.length; j++) {
+        if (data.payments[j].enrollmentId === enrollment.id &&
+            data.payments[j].billingMonth === month) {
+          batchPaid += data.payments[j].amountCents;
+        }
+      }
+      var due = enrollment.monthlyFeeCents - batchPaid;
       expected += enrollment.monthlyFeeCents;
+      paid += batchPaid;
       count++;
-      addRow(table, [course.name, batch.name, batch.schedule]);
-    }
-  }
-
-  for (var j = 0; j < data.payments.length; j++) {
-    var payment = data.payments[j];
-    var paymentEnrollment = getEnrollment(payment.enrollmentId);
-    var paidEnrollmentIsActive = paymentEnrollment &&
-      paymentEnrollment.startMonth <= month &&
-      (!paymentEnrollment.endMonth || paymentEnrollment.endMonth >= month);
-    if (payment.billingMonth === month && paidEnrollmentIsActive &&
-        paymentEnrollment.studentId === studentId) {
-      paid += payment.amountCents;
+      if (due > 0) {
+        unpaid++;
+      }
+      addStatusRow(table, [
+        batch.name,
+        course.name,
+        batch.teacher,
+        batch.schedule
+      ], "Active", "status-active");
+      addStatusRow(feeTable, [
+        batch.name,
+        money(enrollment.monthlyFeeCents),
+        money(batchPaid),
+        money(due > 0 ? due : 0)
+      ], due > 0 ? "Unpaid" : "Paid", due > 0 ? "status-unpaid" : "status-paid");
     }
   }
 
   showText("current-month", getMonthName(month));
-  showText("batch-count", count);
-  showText("fee-expected", "$" + (expected / 100).toFixed(2));
-  showText("fee-paid", "$" + (paid / 100).toFixed(2));
-  showText("fee-due", "$" + ((expected - paid) / 100).toFixed(2));
+  showText("batch-count", count + " Enrolled Batches");
+  showText("fee-expected", money(expected));
+  showText("fee-paid", money(paid));
+  showText("fee-due", money(expected - paid));
+  showText("unpaid-count", unpaid + " Unpaid Items");
 }
 
 function showCourses() {
@@ -157,28 +191,28 @@ function showCourses() {
       var enrollment = data.enrollments[i];
       var active = enrollment.startMonth <= month &&
         (!enrollment.endMonth || enrollment.endMonth >= month);
-      var show = enrollment.studentId === studentId &&
+      var showEnrollment = enrollment.studentId === studentId &&
         (filter.value === "all" ||
           (filter.value === "active" && active) ||
           (filter.value === "ended" && !active));
 
-      if (show) {
+      if (showEnrollment) {
         var batch = getBatch(enrollment.batchId);
         var course = getCourse(batch.courseId);
-        addRow(table, [
+        addStatusRow(table, [
           course.name,
           batch.name,
           batch.teacher,
           batch.schedule,
-          "$" + (enrollment.monthlyFeeCents / 100).toFixed(2),
+          money(enrollment.monthlyFeeCents),
           getMonthName(enrollment.startMonth) + " - " + getMonthName(enrollment.endMonth)
-        ]);
+        ], active ? "Active" : "Ended", active ? "status-active" : "status-due");
         count++;
       }
     }
 
     if (count === 0) {
-      showEmpty(table, 6, "No courses found for this filter.");
+      showEmpty(table, 7, "No courses found for this filter.");
     }
   }
 
@@ -209,7 +243,8 @@ function showAttendance() {
       if (isMyEnrollment(record.enrollmentId) && correctBatch && correctMonth) {
         var batch = getBatch(enrollment.batchId);
         var status = record.status === "present" ? "Present" : "Absent";
-        addRow(table, [record.date, batch.name, status]);
+        addStatusRow(table, [record.date, batch.name], status,
+          record.status === "present" ? "status-paid" : "status-absent");
         total++;
         if (record.status === "present") {
           present++;
@@ -289,6 +324,21 @@ function showResults() {
 
 document.addEventListener("DOMContentLoaded", function () {
   showProfile();
+  var firstName = data.student.name.split(" ")[0];
+  var initials = "";
+  var nameParts = data.student.name.split(" ");
+  for (var i = 0; i < nameParts.length; i++) {
+    initials += nameParts[i].charAt(0);
+  }
+  showText("first-name", firstName);
+  var initialLabels = document.querySelectorAll("[data-student-initials]");
+  var idLabels = document.querySelectorAll("[data-student-id]");
+  for (var j = 0; j < initialLabels.length; j++) {
+    initialLabels[j].textContent = initials;
+  }
+  for (var k = 0; k < idLabels.length; k++) {
+    idLabels[k].textContent = "STU-" + data.student.id;
+  }
   var page = document.body.getAttribute("data-page");
 
   if (page === "dashboard") {
