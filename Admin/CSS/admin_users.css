@@ -540,3 +540,8 @@
 .um-button-success:hover {
   background-color: #047857;
 }
+.error {
+  color: crimson;
+  font-weight: 500;
+  
+}

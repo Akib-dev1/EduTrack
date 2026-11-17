@@ -190,7 +190,11 @@
     </div>
     <!-- CREATE USER MODAL -->
     <div id="createUserModal" class="um-modal">
-      <form id="createUserForm" class="um-modal-box">
+      <form
+        id="createUserForm"
+        class="um-modal-box"
+        onsubmit="return validateCreateUserForm();"
+      >
         <div class="um-modal-top">
           <h3>Create New User</h3>
 
@@ -209,6 +213,7 @@
               placeholder="Enter full name"
               required
             />
+            <p class="error" id="createFullNameErr"></p>
           </div>
 
           <div class="um-field">
@@ -220,6 +225,7 @@
               placeholder="Enter username"
               required
             />
+            <p class="error" id="createUsernameErr"></p>
           </div>
 
           <div class="um-field-row">
@@ -232,15 +238,18 @@
                 placeholder="01712-998877"
                 required
               />
+              <p class="error" id="createPhoneErr"></p>
             </div>
 
             <div class="um-field">
               <label for="createRole">Role</label>
               <select id="createRole" name="role" required>
+                <option selected disabled>Select Role</option>
                 <option value="student">Student</option>
                 <option value="teacher">Teacher</option>
                 <option value="admin">Admin</option>
               </select>
+              <p class="error" id="createRoleErr"></p>
             </div>
           </div>
 
@@ -254,6 +263,7 @@
               autocomplete="new-password"
               required
             />
+            <p class="error" id="createPasswordErr"></p>
           </div>
 
           <div class="um-field">
@@ -270,6 +280,7 @@
                 Inactive
               </label>
             </div>
+            <p class="error" id="createStatusErr"></p>
           </div>
         </div>
 
@@ -291,7 +302,11 @@
 
     <!-- EDIT USER MODAL -->
     <div id="editUserModal" class="um-modal">
-      <form id="editUserForm" class="um-modal-box">
+      <form
+        id="editUserForm"
+        class="um-modal-box"
+        onsubmit="return validateUserEditForm();"
+      >
         <div class="um-modal-top">
           <h3>Edit User</h3>
 
@@ -306,11 +321,13 @@
           <div class="um-field">
             <label for="editFullName">Full Name</label>
             <input id="editFullName" name="fullName" type="text" required />
+            <p class="error" id="editFullNameErr"></p>
           </div>
 
           <div class="um-field">
             <label for="editPhone">Phone Number</label>
             <input id="editPhone" name="phone" type="tel" required />
+            <p class="error" id="editPhoneErr"></p>
           </div>
 
           <div class="um-field">
