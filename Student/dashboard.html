@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="assets/css/student.css">
+  <script src="assets/js/student-data.js" defer></script>
+  <script src="assets/js/student.js" defer></script>
+</head>
+<body data-page="dashboard">
+  <div class="layout">
+    <aside class="sidebar">
+      <p class="brand">EduTrack</p>
+      <nav aria-label="Student pages">
+        <a href="dashboard.html" aria-current="page">Dashboard</a>
+        <a href="courses.html">My courses</a>
+        <a href="attendance.html">My attendance</a>
+        <a href="results.html">My results</a>
+      </nav>
+    </aside>
+    <div class="content">
+      <header class="topbar">
+        <p>Student: <strong data-student-name>Demo student</strong></p>
+        <button type="button" data-logout>Log out</button>
+      </header>
+      <main>
+        <h1>Student dashboard</h1>
+        <p class="demo-note">Demo - fictional data. This page is a frontend example and does not provide secure sign-in or permanent storage.</p>
+        <section class="profile" aria-labelledby="profile-title">
+          <h2 id="profile-title">My profile</h2>
+          <dl>
+            <div><dt>Student ID</dt><dd id="student-id"></dd></div>
+            <div><dt>Name</dt><dd id="student-name"></dd></div>
+            <div><dt>Username</dt><dd id="student-username"></dd></div>
+            <div><dt>Phone</dt><dd id="student-phone"></dd></div>
+          </dl>
+        </section>
+        <section aria-label="Current month summary">
+          <h2>Current month: <span id="current-month"></span></h2>
+          <div class="cards">
+            <article class="card"><p>Enrolled batches</p><strong id="batch-count">0</strong></article>
+            <article class="card"><p>Fee expected</p><strong id="fee-expected">$0.00</strong></article>
+            <article class="card"><p>Fee paid</p><strong id="fee-paid">$0.00</strong></article>
+            <article class="card"><p>Fee remaining</p><strong id="fee-due">$0.00</strong></article>
+          </div>
+        </section>
+        <section class="panel" aria-labelledby="batch-title">
+          <h2 id="batch-title">My current courses and schedules</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Course</th><th>Batch</th><th>Weekly schedule</th></tr></thead>
+              <tbody id="dashboard-batches"></tbody>
+            </table>
+          </div>
+        </section>
+        <p class="message" id="logout-message" role="status"></p>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
