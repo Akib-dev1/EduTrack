@@ -518,3 +518,25 @@
 .um-hidden {
   display: none;
 }
+.um-success-icon {
+  width: 3rem;
+  height: 3rem;
+  min-width: 3rem;
+  border-radius: 50%;
+  background-color: #ecfdf5;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.um-button-success {
+  background-color: #059669;
+  color: white;
+  border: 1px solid #059669;
+}
+
+.um-button-success:hover {
+  background-color: #047857;
+}

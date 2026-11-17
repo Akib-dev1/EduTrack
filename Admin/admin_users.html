@@ -134,7 +134,7 @@
                   <td><span class="status active">Active</span></td>
                   <td>
                     <div class="action-box">
-                      <button id="edit-btn">Edit</button>
+                      <button class="edit-btn">Edit</button>
                       <button class="deactivate" id="deactivate-btn">
                         Deactivate
                       </button>
@@ -155,7 +155,7 @@
                   <td><span class="status inactive">Inactive</span></td>
                   <td>
                     <div class="action-box">
-                      <button>Edit</button>
+                      <button class="edit-btn">Edit</button>
                       <button class="activate">Activate</button>
                     </div>
                   </td>
@@ -348,7 +348,7 @@
 
     <!-- DEACTIVATE USER MODAL -->
     <div id="deactivateUserModal" class="um-modal">
-      <form id="deactivateUserForm" class="um-modal-box">
+      <div id="deactivateUserForm" class="um-modal-box">
         <div class="um-confirm-body">
           <div class="um-warning-icon">
             <i class="fa-solid fa-triangle-exclamation"></i>
@@ -375,15 +375,46 @@
             Cancel
           </button>
 
-          <button
-            id="deactivateUserButton"
-            type="submit"
-            class="um-button um-button-danger"
-          >
+          <button id="deactivateUserButton" class="um-button um-button-danger">
             Deactivate Account
           </button>
         </div>
-      </form>
+      </div>
+    </div>
+    <!-- Activate User Modal -->
+    <div id="activateUserModal" class="um-modal">
+      <div id="activateUserForm" class="um-modal-box">
+        <div class="um-confirm-body">
+          <div class="um-success-icon">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+
+          <div>
+            <h3 class="um-confirm-title">Activate this account?</h3>
+
+            <p class="um-confirm-text">
+              Are you sure you want to activate
+              <span id="activateUserName">this user</span>'s account? The user
+              will regain access to the portal immediately and can continue
+              using their account.
+            </p>
+          </div>
+        </div>
+
+        <div class="um-modal-footer">
+          <button
+            class="um-button um-button-light"
+            id="activate-cancel"
+            type="button"
+          >
+            Cancel
+          </button>
+
+          <button id="activateUserButton" class="um-button um-button-success">
+            Activate Account
+          </button>
+        </div>
+      </div>
     </div>
     <script src="JS/admin_users.js"></script>
   </body>
