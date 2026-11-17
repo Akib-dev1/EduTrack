@@ -356,3 +356,10 @@ For Phase 2, repeat it using real PHP requests and persisted SQL records.
 Do not claim a backend feature is complete until it has been implemented
 and tested. The first submission is the finished frontend prototype.
 
+11. STUDENT FRONTEND QUICK START
+================================
+Open dashboard.html, courses.html, attendance.html, or results.html from
+this folder in a browser. The four pages share:
+- assets/css/student.css for the layout and flexbox styles.
+- assets/js/student-data.js for fictional student demo records.
+- assets/js/student.js for page rendering and simple filters.
