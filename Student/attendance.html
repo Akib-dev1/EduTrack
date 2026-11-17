@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Attendance</title>
+  <link rel="stylesheet" href="assets/css/student.css">
+  <script src="assets/js/student-data.js" defer></script>
+  <script src="assets/js/student.js" defer></script>
+</head>
+<body data-page="attendance">
+  <div class="layout">
+    <aside class="sidebar">
+      <p class="brand">EduTrack</p>
+      <nav aria-label="Student pages">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="courses.html">My courses</a>
+        <a href="attendance.html" aria-current="page">My attendance</a>
+        <a href="results.html">My results</a>
+      </nav>
+    </aside>
+    <div class="content">
+      <header class="topbar">
+        <p>Student: <strong data-student-name>Demo student</strong></p>
+        <button type="button" data-logout>Log out</button>
+      </header>
+      <main>
+        <h1>My attendance</h1>
+        <p class="demo-note">Demo - fictional data. Attendance is read-only.</p>
+        <section class="panel" aria-labelledby="attendance-title">
+          <h2 id="attendance-title">Attendance summary</h2>
+          <div class="filters">
+            <label for="attendance-batch">Batch
+              <select id="attendance-batch"></select>
+            </label>
+            <label for="attendance-month">Month
+              <input id="attendance-month" type="month">
+            </label>
+          </div>
+          <div class="cards">
+            <article class="card"><p>Recorded classes</p><strong id="attendance-total">0</strong></article>
+            <article class="card"><p>Present</p><strong id="attendance-present">0</strong></article>
+            <article class="card"><p>Absent</p><strong id="attendance-absent">0</strong></article>
+            <article class="card"><p>Attendance rate</p><strong id="attendance-rate">--</strong></article>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Class date</th><th>Batch</th><th>Status</th></tr></thead>
+              <tbody id="attendance-table"></tbody>
+            </table>
+          </div>
+        </section>
+        <p class="message" id="logout-message" role="status"></p>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
