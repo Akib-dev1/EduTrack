@@ -11,47 +11,39 @@
 <body data-page="attendance">
   <div class="layout">
     <aside class="sidebar">
-      <p class="brand">EduTrack</p>
+      <a class="brand" href="dashboard.html"><span class="brand-mark">E</span><span>EduTrack<small>Student Portal</small></span></a>
+      <p class="nav-title">MENU</p>
       <nav aria-label="Student pages">
-        <a href="dashboard.html">Dashboard</a>
-        <a href="courses.html">My courses</a>
-        <a class="active" href="attendance.html" aria-current="page">My attendance</a>
-        <a href="results.html">My results</a>
+        <a href="dashboard.html"><span class="nav-icon">⌂</span>Dashboard</a>
+        <a href="courses.html"><span class="nav-icon">▤</span>My Courses</a>
+        <a class="active" href="attendance.html" aria-current="page"><span class="nav-icon">◷</span>My Attendance</a>
+        <a href="results.html"><span class="nav-icon">▧</span>My Results</a>
       </nav>
+      <button class="sign-out" type="button" data-logout><span class="nav-icon">↪</span>Sign out</button>
     </aside>
     <div class="content">
       <header class="topbar">
-        <p>Student: <strong data-student-name>Demo student</strong></p>
-        <button type="button" data-logout>Log out</button>
+        <p class="breadcrumb">Student Portal <span>/</span> <strong>My Attendance</strong></p>
+        <div class="account"><span class="notice-dot"></span><span class="avatar" data-student-initials>SR</span><span class="account-name"><strong data-student-name>Demo student</strong><small data-student-id>Student ID</small></span></div>
       </header>
       <main>
-        <h1>My attendance</h1>
-        <p class="demo-note">Demo - fictional data. Attendance is read-only.</p>
-        <section class="panel" aria-labelledby="attendance-title">
-          <h2 id="attendance-title">Attendance summary</h2>
-          <div class="filters">
-            <label for="attendance-batch">Batch
-              <select id="attendance-batch"></select>
-            </label>
-            <label for="attendance-month">Month
-              <input id="attendance-month" type="month">
-            </label>
+        <p class="notice"><strong>●</strong> Attendance shown here is based on classes recorded by your teachers.</p>
+        <div class="welcome-row"><div><h1>My Attendance</h1><p>Check your recorded attendance by batch and month.</p></div><p class="view-only">ⓘ This page is view-only. Contact the center for changes.</p></div>
+        <section class="panel">
+          <div class="panel-heading"><div><h2>Attendance Summary</h2><p>Only recorded present and absent classes are included.</p></div>
+            <div class="filters"><label for="attendance-batch">Batch<select id="attendance-batch"></select></label><label for="attendance-month">Month<input id="attendance-month" type="month"></label></div>
           </div>
-          <div class="cards">
-            <article class="card"><p>Recorded classes</p><strong id="attendance-total">0</strong></article>
-            <article class="card"><p>Present</p><strong id="attendance-present">0</strong></article>
-            <article class="card"><p>Absent</p><strong id="attendance-absent">0</strong></article>
-            <article class="card"><p>Attendance rate</p><strong id="attendance-rate">--</strong></article>
+          <div class="cards attendance-cards">
+            <article class="card"><div class="card-label"><span>RECORDED CLASSES</span></div><strong id="attendance-total">0</strong></article>
+            <article class="card paid-card"><div class="card-label"><span>PRESENT</span></div><strong id="attendance-present">0</strong></article>
+            <article class="card due-card"><div class="card-label"><span>ABSENT</span></div><strong id="attendance-absent">0</strong></article>
+            <article class="card"><div class="card-label"><span>ATTENDANCE RATE</span></div><strong id="attendance-rate">--</strong></article>
           </div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Class date</th><th>Batch</th><th>Status</th></tr></thead>
-              <tbody id="attendance-table"></tbody>
-            </table>
-          </div>
+          <div class="table-wrap"><table><thead><tr><th>CLASS DATE</th><th>BATCH NAME</th><th>STATUS</th></tr></thead><tbody id="attendance-table"></tbody></table></div>
         </section>
         <p class="message" id="logout-message" role="status"></p>
       </main>
+      <footer><span>© 2026 EduTrack Academic Portal. All rights reserved.</span><span>Dhanmondi Main Campus · Support: help@edutrack.edu</span></footer>
     </div>
   </div>
 </body>

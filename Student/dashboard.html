@@ -11,51 +11,68 @@
 <body data-page="dashboard">
   <div class="layout">
     <aside class="sidebar">
-      <p class="brand">EduTrack</p>
+      <a class="brand" href="dashboard.html"><span class="brand-mark">E</span><span>EduTrack<small>Student Portal</small></span></a>
+      <p class="nav-title">MENU</p>
       <nav aria-label="Student pages">
-        <a class="active" href="dashboard.html" aria-current="page">Dashboard</a>
-        <a href="courses.html">My courses</a>
-        <a href="attendance.html">My attendance</a>
-        <a href="results.html">My results</a>
+        <a class="active" href="dashboard.html" aria-current="page"><span class="nav-icon">⌂</span>Dashboard</a>
+        <a href="courses.html"><span class="nav-icon">▤</span>My Courses</a>
+        <a href="attendance.html"><span class="nav-icon">◷</span>My Attendance</a>
+        <a href="results.html"><span class="nav-icon">▧</span>My Results</a>
       </nav>
+      <button class="sign-out" type="button" data-logout><span class="nav-icon">↪</span>Sign out</button>
     </aside>
     <div class="content">
       <header class="topbar">
-        <p>Student: <strong data-student-name>Demo student</strong></p>
-        <button type="button" data-logout>Log out</button>
+        <p class="breadcrumb">Student Portal <span>/</span> <strong>Dashboard</strong></p>
+        <div class="account">
+          <span class="notice-dot" aria-label="No new notifications"></span>
+          <span class="avatar" data-student-initials>SR</span>
+          <span class="account-name"><strong data-student-name>Demo student</strong><small data-student-id>Student ID</small></span>
+        </div>
       </header>
       <main>
-        <h1>Student dashboard</h1>
-        <p class="demo-note">Demo - fictional data. This page is a frontend example and does not provide secure sign-in or permanent storage.</p>
-        <section class="profile" aria-labelledby="profile-title">
-          <h2 id="profile-title">My profile</h2>
+        <p class="notice"><strong>●</strong> Academic Term 2026 Synchronized <span>—</span> Student schedule and fee status updated for Dhanmondi Campus.</p>
+        <div class="welcome-row">
+          <div><h1>Welcome, <span id="first-name">Student</span></h1><p>Here is your overview for this month.</p></div>
+          <p class="view-only">ⓘ This page is view-only. Contact the center for changes.</p>
+        </div>
+        <section class="panel profile" aria-labelledby="profile-title">
+          <div class="panel-heading"><h2 id="profile-title"><span>♙</span> STUDENT PROFILE</h2><span class="status status-active">● Active Student</span></div>
           <dl>
-            <div><dt>Student ID</dt><dd id="student-id"></dd></div>
-            <div><dt>Name</dt><dd id="student-name"></dd></div>
-            <div><dt>Username</dt><dd id="student-username"></dd></div>
-            <div><dt>Phone</dt><dd id="student-phone"></dd></div>
+            <div><dt>STUDENT ID</dt><dd id="student-id"></dd></div>
+            <div><dt>FULL NAME</dt><dd id="student-name"></dd></div>
+            <div><dt>USERNAME</dt><dd id="student-username"></dd></div>
+            <div><dt>CONTACT PHONE</dt><dd id="student-phone"></dd></div>
+            <div><dt>CAMPUS</dt><dd>Dhanmondi Main Campus</dd></div>
           </dl>
         </section>
-        <section aria-label="Current month summary">
-          <h2>Current month: <span id="current-month"></span></h2>
+        <section class="fee-section">
+          <div class="section-heading">
+            <div><h2>Fee Summary, <span id="current-month"></span></h2><p>Monthly billing breakdown and outstanding balance.</p></div>
+            <span>Currency: BDT (৳)</span>
+          </div>
           <div class="cards">
-            <article class="card"><p>Enrolled batches</p><strong id="batch-count">0</strong></article>
-            <article class="card"><p>Fee expected</p><strong id="fee-expected">$0.00</strong></article>
-            <article class="card"><p>Fee paid</p><strong id="fee-paid">$0.00</strong></article>
-            <article class="card"><p>Fee remaining</p><strong id="fee-due">$0.00</strong></article>
+            <article class="card"><div class="card-label"><span>EXPECTED FEES</span><b class="card-icon">৳</b></div><strong id="fee-expected">৳ 0</strong><div class="card-foot"><span id="batch-count">0 Enrolled Batches</span><span>Total charge</span></div></article>
+            <article class="card paid-card"><div class="card-label"><span>PAID THIS MONTH</span><b class="card-icon">✓</b></div><strong id="fee-paid">৳ 0</strong><div class="card-foot"><span class="green-text">Paid this month</span><span>Receipt demo</span></div></article>
+            <article class="card due-card"><div class="card-label"><span>REMAINING BALANCE</span><b class="card-icon">৳</b></div><strong id="fee-due">৳ 0</strong><div class="card-foot"><span class="due-label">Amount remaining</span><span id="unpaid-count">0 Unpaid Items</span></div></article>
           </div>
         </section>
-        <section class="panel" aria-labelledby="batch-title">
-          <h2 id="batch-title">My current courses and schedules</h2>
+        <section class="panel" aria-labelledby="fee-breakdown-title">
+          <div class="panel-heading"><div><h2 id="fee-breakdown-title">Fee Breakdown</h2><p>Itemized batch charges for the current billing cycle.</p></div></div>
           <div class="table-wrap">
-            <table>
-              <thead><tr><th>Course</th><th>Batch</th><th>Weekly schedule</th></tr></thead>
-              <tbody id="dashboard-batches"></tbody>
-            </table>
+            <table><thead><tr><th>BATCH NAME</th><th>EXPECTED FEE</th><th>PAID</th><th>REMAINING</th><th>STATUS</th></tr></thead><tbody id="fee-breakdown"></tbody></table>
           </div>
         </section>
+        <section class="panel" aria-labelledby="batches-title">
+          <div class="panel-heading"><div><h2 id="batches-title">My Active Batches</h2><p>Faculty schedules and classes you are presently registered for.</p></div></div>
+          <div class="table-wrap">
+            <table><thead><tr><th>BATCH NAME</th><th>COURSE / SUBJECT</th><th>FACULTY INSTRUCTOR</th><th>ASSIGNED SCHEDULE</th><th>STATUS</th></tr></thead><tbody id="dashboard-batches"></tbody></table>
+          </div>
+        </section>
+        <details class="reference-panel"><summary>Portal display reference &amp; empty states <span>Click to toggle sample states.</span></summary><p>Attendance without records displays “--”. Exams without a saved mark display “Not entered”. Your data in this screen is fictional demo data.</p></details>
         <p class="message" id="logout-message" role="status"></p>
       </main>
+      <footer><span>© 2026 EduTrack Academic Portal. All rights reserved.</span><span>Dhanmondi Main Campus · Support: help@edutrack.edu</span></footer>
     </div>
   </div>
 </body>

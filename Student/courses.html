@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Courses and Schedule</title>
+  <title>My Courses</title>
   <link rel="stylesheet" href="assets/css/student.css">
   <script src="assets/js/student-data.js" defer></script>
   <script src="assets/js/student.js" defer></script>
@@ -11,42 +11,33 @@
 <body data-page="courses">
   <div class="layout">
     <aside class="sidebar">
-      <p class="brand">EduTrack</p>
+      <a class="brand" href="dashboard.html"><span class="brand-mark">E</span><span>EduTrack<small>Student Portal</small></span></a>
+      <p class="nav-title">MENU</p>
       <nav aria-label="Student pages">
-        <a href="dashboard.html">Dashboard</a>
-        <a class="active" href="courses.html" aria-current="page">My courses</a>
-        <a href="attendance.html">My attendance</a>
-        <a href="results.html">My results</a>
+        <a href="dashboard.html"><span class="nav-icon">⌂</span>Dashboard</a>
+        <a class="active" href="courses.html" aria-current="page"><span class="nav-icon">▤</span>My Courses</a>
+        <a href="attendance.html"><span class="nav-icon">◷</span>My Attendance</a>
+        <a href="results.html"><span class="nav-icon">▧</span>My Results</a>
       </nav>
+      <button class="sign-out" type="button" data-logout><span class="nav-icon">↪</span>Sign out</button>
     </aside>
     <div class="content">
       <header class="topbar">
-        <p>Student: <strong data-student-name>Demo student</strong></p>
-        <button type="button" data-logout>Log out</button>
+        <p class="breadcrumb">Student Portal <span>/</span> <strong>My Courses</strong></p>
+        <div class="account"><span class="notice-dot"></span><span class="avatar" data-student-initials>SR</span><span class="account-name"><strong data-student-name>Demo student</strong><small data-student-id>Student ID</small></span></div>
       </header>
       <main>
-        <h1>My courses and schedule</h1>
-        <p class="demo-note">Demo - fictional data. Course details are read-only.</p>
-        <section class="panel" aria-labelledby="courses-title">
-          <h2 id="courses-title">Enrolled batches</h2>
-          <div class="filters">
-            <label for="course-filter">Enrollment status
-              <select id="course-filter">
-                <option value="all">All</option>
-                <option value="active">Active</option>
-                <option value="ended">Ended</option>
-              </select>
-            </label>
+        <p class="notice"><strong>●</strong> Your enrolled course information is up to date.</p>
+        <div class="welcome-row"><div><h1>My Courses</h1><p>Review your batches, teachers, and assigned schedules.</p></div><p class="view-only">ⓘ This page is view-only. Contact the center for changes.</p></div>
+        <section class="panel">
+          <div class="panel-heading"><div><h2>Course Enrollments</h2><p>Your enrollment information and agreed monthly fees.</p></div>
+            <div class="filters"><label for="course-filter">Enrollment status<select id="course-filter"><option value="all">All courses</option><option value="active">Active</option><option value="ended">Ended</option></select></label></div>
           </div>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Course</th><th>Batch</th><th>Teacher</th><th>Weekly schedule</th><th>Agreed monthly fee</th><th>Enrollment dates</th></tr></thead>
-              <tbody id="courses-table"></tbody>
-            </table>
-          </div>
+          <div class="table-wrap"><table><thead><tr><th>COURSE / SUBJECT</th><th>BATCH NAME</th><th>FACULTY INSTRUCTOR</th><th>ASSIGNED SCHEDULE</th><th>MONTHLY FEE</th><th>ENROLLED</th><th>STATUS</th></tr></thead><tbody id="courses-table"></tbody></table></div>
         </section>
         <p class="message" id="logout-message" role="status"></p>
       </main>
+      <footer><span>© 2026 EduTrack Academic Portal. All rights reserved.</span><span>Dhanmondi Main Campus · Support: help@edutrack.edu</span></footer>
     </div>
   </div>
 </body>
