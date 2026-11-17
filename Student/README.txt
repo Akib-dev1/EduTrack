@@ -363,3 +363,8 @@ this folder in a browser. The four pages share:
 - assets/css/student.css for the layout and flexbox styles.
 - assets/js/student-data.js for fictional student demo records.
 - assets/js/student.js for page rendering and simple filters.
+
+The demo is read-only and does not save changes or provide real sign-in.
+The dashboard fee cards use the current calendar month; attendance uses
+the month and batch selected on its page. The results list includes a
+zero score and an exam with no score entered.
