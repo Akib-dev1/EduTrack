@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduTrack | Login</title>
+    <link rel="stylesheet" href="assets/CSS/auth.css" />
+    <script
+      src="https://kit.fontawesome.com/2f2e6479ad.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon" />
+  </head>
+  <body class="auth-page">
+    <aside class="auth-side">
+      <div class="auth-brand">
+        <div class="logo"><i class="fa-brands fa-leanpub"></i></div>
+        <div class="logo-text">
+          <h4>EduTrack</h4>
+          <p>Academic Portal</p>
+        </div>
+      </div>
+
+      <div class="auth-side-text">
+        <h2>Run your coaching center from one place.</h2>
+        <p>
+          Track students, batches, faculty schedules, and enrollments without
+          juggling spreadsheets.
+        </p>
+      </div>
+
+      <p class="auth-side-footer">Main Campus · Spring 2025</p>
+    </aside>
+
+    <main class="auth-main">
+      <div class="auth-card">
+        <div class="auth-head">
+          <h3>Welcome back</h3>
+          <p>Sign in to continue to your account.</p>
+        </div>
+
+        <form class="auth-form" action="#" method="post">
+          <div class="field">
+            <label for="loginUsername">Username</label>
+            <div class="input-box">
+              <i class="fa-solid fa-user"></i>
+              <input
+                id="loginUsername"
+                name="username"
+                type="text"
+                placeholder="Enter your username"
+                autocomplete="username"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <div class="input-box">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                id="loginPassword"
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label class="check-option">
+              <input type="checkbox" name="remember" />
+              Remember me
+            </label>
+            <a href="#" class="text-link">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="auth-button">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>Sign In
+          </button>
+        </form>
+      </div>
+    </main>
+    <script src="assets/JS/auth.js"></script>
+  </body>
+</html>

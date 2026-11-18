@@ -97,12 +97,12 @@
                 <h3 class="courses-card-title">Courses</h3>
                 <span class="count-badge">4 Active Courses</span>
               </div>
-              <button class="add-button">
+              <button type="button" class="add-button" id="open-course-modal">
                 <i class="fa-solid fa-plus"></i>
                 Add Course
               </button>
             </div>
-            <div class="courses-table-box">
+            <div class="courses-table-box" id="coursesTableBox">
               <table class="courses-table">
                 <thead>
                   <tr>
@@ -139,6 +139,24 @@
                 </tbody>
               </table>
             </div>
+
+            <!-- Empty state: courses. Hidden by default. Remove cb-hidden when there are no courses. -->
+            <div class="cb-hidden">
+              <div class="cb-empty" id="coursesEmptyState">
+                <div class="cb-empty-icon">
+                  <i class="fa-regular fa-folder-open"></i>
+                </div>
+                <h4 class="cb-empty-title">No courses added yet.</h4>
+                <p class="cb-empty-text">
+                  Create your first curriculum course to start scheduling
+                  batches.
+                </p>
+                <button type="button" class="add-button" id="empty-add-course">
+                  <i class="fa-solid fa-plus"></i>
+                  Add Course
+                </button>
+              </div>
+            </div>
           </div>
 
           <!-- Batches -->
@@ -149,13 +167,13 @@
                 <span class="count-badge">4 Active Batches</span>
               </div>
 
-              <button type="button" class="add-button">
+              <button type="button" class="add-button" id="open-batch-modal">
                 <i class="fa-solid fa-plus"></i>
                 Add Batch
               </button>
             </div>
 
-            <div class="courses-table-box">
+            <div class="courses-table-box" id="batchesTableBox">
               <table class="batches-table">
                 <thead>
                   <tr>
@@ -204,9 +222,407 @@
                 </tbody>
               </table>
             </div>
+
+            <!-- Empty state: batches. Hidden by default. Remove cb-hidden when there are no batches. -->
+            <div class="cb-hidden">
+              <div class="cb-empty" id="batchesEmptyState">
+                <div class="cb-empty-icon">
+                  <i class="fa-regular fa-calendar"></i>
+                </div>
+                <h4 class="cb-empty-title">No batches added yet.</h4>
+                <p class="cb-empty-text">
+                  Assign a teacher and set up class schedules for your enrolled
+                  courses.
+                </p>
+                <button type="button" class="add-button" id="empty-add-batch">
+                  <i class="fa-solid fa-plus"></i>
+                  Add Batch
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- ADD COURSE MODAL -->
+    <div id="courseModal" class="cb-modal">
+      <form
+        id="courseForm"
+        class="cb-modal-box"
+        onsubmit="return validateAddCourse();"
+      >
+        <div class="cb-modal-top">
+          <h3>Add New Course</h3>
+          <button type="button" class="cb-close" id="course-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="cb-modal-body">
+          <div class="cb-field" id="courseNameField">
+            <label for="courseName"
+              >Course Name <span class="cb-req">*</span></label
+            >
+            <div class="cb-input-wrap">
+              <input
+                id="courseName"
+                name="courseName"
+                type="text"
+                placeholder="Enter course name"
+              />
+            </div>
+            <p class="cb-error" id="courseNameErr"></p>
+          </div>
+
+          <div class="cb-field" id="courseDescField">
+            <label for="courseDesc">Short Description</label>
+            <textarea
+              id="courseDesc"
+              name="courseDesc"
+              rows="4"
+              placeholder="Write a short description"
+            ></textarea>
+            <p class="cb-error" id="courseDescErr"></p>
+          </div>
+
+          <div class="cb-field">
+            <p class="cb-label">Status</p>
+            <div class="cb-radio-group">
+              <label class="cb-radio-option">
+                <input
+                  type="radio"
+                  name="courseStatus"
+                  value="active"
+                  checked
+                />
+                Active
+              </label>
+              <label class="cb-radio-option">
+                <input type="radio" name="courseStatus" value="inactive" />
+                Inactive
+              </label>
+            </div>
+            <p class="cb-error" id="statusErr"></p>
+          </div>
+        </div>
+
+        <div class="cb-modal-footer">
+          <button type="button" class="cb-btn cb-btn-light" id="course-cancel">
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="cb-btn cb-btn-dark"
+            id="saveCourseButton"
+          >
+            Save Course
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- ADD BATCH MODAL -->
+    <div id="batchModal" class="cb-modal">
+      <form
+        id="batchForm"
+        class="cb-modal-box"
+        onsubmit="return validateAddBatch();"
+      >
+        <div class="cb-modal-top">
+          <h3>Add New Batch</h3>
+          <button type="button" class="cb-close" id="batch-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="cb-modal-body">
+          <div class="cb-field" id="batchNameField">
+            <label for="batchName"
+              >Batch Name <span class="cb-req">*</span></label
+            >
+            <div class="cb-input-wrap">
+              <input
+                id="batchName"
+                name="batchName"
+                type="text"
+                placeholder="Enter batch identifier..."
+              />
+            </div>
+            <p class="cb-error" id="batchNameErr"></p>
+          </div>
+
+          <div class="cb-field-row">
+            <div class="cb-field" id="batchCourseField">
+              <label for="batchCourse">Course</label>
+              <select id="batchCourse" name="batchCourse">
+                <option value="" selected disabled>Select course</option>
+              </select>
+              <p class="cb-error" id="batchCourseErr"></p>
+            </div>
+
+            <div class="cb-field" id="batchTeacherField">
+              <label for="batchTeacher">Assigned Teacher</label>
+              <select id="batchTeacher" name="batchTeacher">
+                <option value="" selected disabled>Select teacher</option>
+              </select>
+              <p class="cb-error" id="batchTeacherErr"></p>
+            </div>
+          </div>
+
+          <div class="cb-field" id="batchScheduleField">
+            <label for="batchSchedule">Weekly Schedule</label>
+            <input
+              id="batchSchedule"
+              name="batchSchedule"
+              type="text"
+              placeholder="Friday, Saturday: 3:00 - 5:00 PM"
+            />
+            <p class="cb-hint">Example: Sunday, Tuesday, Thursday: 5-6 PM</p>
+            <p class="cb-error" id="batchScheduleErr"></p>
+          </div>
+
+          <div class="cb-field-row">
+            <div class="cb-field" id="batchFeeField">
+              <label for="batchFee"
+                >Monthly Fee <span class="cb-req">*</span></label
+              >
+              <div class="cb-input-wrap">
+                <input
+                  id="batchFee"
+                  name="batchFee"
+                  type="number"
+                  min="0"
+                  placeholder="0"
+                />
+              </div>
+              <p class="cb-error" id="batchFeeErr"></p>
+            </div>
+
+            <div class="cb-field">
+              <label for="batchStatus">Status</label>
+              <select id="batchStatus" name="batchStatus">
+                <option value="active" selected>Active</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="cb-note">
+            <i class="fa-solid fa-circle-info"></i>
+            Changing the fee does not affect existing enrollments.
+          </div>
+        </div>
+
+        <div class="cb-modal-footer">
+          <button type="button" class="cb-btn cb-btn-light" id="batch-cancel">
+            Cancel
+          </button>
+          <button type="submit" class="cb-btn cb-btn-dark" id="saveBatchButton">
+            Save Batch
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div id="editCourseModal" class="cb-modal">
+      <form id="editCourseForm" class="cb-modal-box" novalidate>
+        <div class="cb-modal-top">
+          <h3>Edit Course</h3>
+          <button type="button" class="cb-close" id="edit-course-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="cb-modal-body">
+          <input id="editCourseId" name="courseId" type="hidden" />
+
+          <div class="cb-field" id="editCourseNameField">
+            <label for="editCourseName"
+              >Course Name <span class="cb-req">*</span></label
+            >
+            <div class="cb-input-wrap">
+              <input
+                id="editCourseName"
+                name="courseName"
+                type="text"
+                placeholder="Enter course name"
+              />
+              <i class="fa-solid fa-circle-exclamation cb-input-icon"></i>
+            </div>
+            <p class="cb-error" id="editCourseNameErr"></p>
+          </div>
+
+          <div class="cb-field" id="editCourseDescField">
+            <label for="editCourseDesc">Short Description</label>
+            <textarea
+              id="editCourseDesc"
+              name="courseDesc"
+              rows="4"
+              placeholder="Write a short description"
+            ></textarea>
+            <p class="cb-error" id="editCourseDescErr"></p>
+          </div>
+
+          <div class="cb-field">
+            <p class="cb-label">Status</p>
+            <div class="cb-radio-group">
+              <label class="cb-radio-option">
+                <input
+                  type="radio"
+                  name="editCourseStatus"
+                  value="active"
+                  checked
+                />
+                Active
+              </label>
+              <label class="cb-radio-option">
+                <input type="radio" name="editCourseStatus" value="inactive" />
+                Inactive
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="cb-modal-footer">
+          <button
+            type="button"
+            class="cb-btn cb-btn-light"
+            id="edit-course-cancel"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="cb-btn cb-btn-dark"
+            id="updateCourseButton"
+          >
+            Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- EDIT BATCH MODAL -->
+    <div id="editBatchModal" class="cb-modal">
+      <form id="editBatchForm" class="cb-modal-box" novalidate>
+        <div class="cb-modal-top">
+          <h3>Edit Batch</h3>
+          <button type="button" class="cb-close" id="edit-batch-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="cb-modal-body">
+          <input id="editBatchId" name="batchId" type="hidden" />
+
+          <div class="cb-field" id="editBatchNameField">
+            <label for="editBatchName"
+              >Batch Name <span class="cb-req">*</span></label
+            >
+            <div class="cb-input-wrap">
+              <input
+                id="editBatchName"
+                name="batchName"
+                type="text"
+                placeholder="Enter batch identifier..."
+              />
+              <i class="fa-solid fa-circle-exclamation cb-input-icon"></i>
+            </div>
+            <p class="cb-error" id="editBatchNameErr"></p>
+          </div>
+
+          <div class="cb-field-row">
+            <div class="cb-field" id="editBatchCourseField">
+              <label for="editBatchCourse">Course</label>
+              <select id="editBatchCourse" name="batchCourse">
+                <option value="" selected disabled>Select course</option>
+              </select>
+              <p class="cb-error" id="editBatchCourseErr"></p>
+            </div>
+
+            <div class="cb-field" id="editBatchTeacherField">
+              <label for="editBatchTeacher">Assigned Teacher</label>
+              <select id="editBatchTeacher" name="batchTeacher">
+                <option value="" selected disabled>Select teacher</option>
+              </select>
+              <p class="cb-error" id="editBatchTeacherErr"></p>
+            </div>
+          </div>
+
+          <div class="cb-field" id="editBatchScheduleField">
+            <label for="editBatchSchedule">Weekly Schedule</label>
+            <input
+              id="editBatchSchedule"
+              name="batchSchedule"
+              type="text"
+              placeholder="Friday, Saturday: 3:00 - 5:00 PM"
+            />
+            <p class="cb-hint">Example: Sunday, Tuesday, Thursday: 5-6 PM</p>
+            <p class="cb-error" id="editBatchScheduleErr"></p>
+          </div>
+
+          <div class="cb-field-row">
+            <div class="cb-field" id="editBatchFeeField">
+              <label for="editBatchFee"
+                >Monthly Fee <span class="cb-req">*</span></label
+              >
+              <div class="cb-input-wrap">
+                <input
+                  id="editBatchFee"
+                  name="batchFee"
+                  type="number"
+                  min="0"
+                  placeholder="0"
+                />
+                <i class="fa-solid fa-circle-exclamation cb-input-icon"></i>
+              </div>
+              <p class="cb-error" id="editBatchFeeErr"></p>
+            </div>
+
+            <div class="cb-field">
+              <label for="editBatchStatus">Status</label>
+              <select id="editBatchStatus" name="batchStatus">
+                <option value="active" selected>Active</option>
+                <option value="upcoming">Upcoming</option>
+                <option value="inactive">Inactive</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="cb-note">
+            <i class="fa-solid fa-circle-info"></i>
+            Changing the fee does not affect existing enrollments.
+          </div>
+
+          <div class="cb-alert-error cb-hidden" id="editBatchAlert">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span id="editBatchAlertText"
+              >2 validation issues need your attention before saving.</span
+            >
+          </div>
+        </div>
+
+        <div class="cb-modal-footer">
+          <button
+            type="button"
+            class="cb-btn cb-btn-light"
+            id="edit-batch-cancel"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="cb-btn cb-btn-dark"
+            id="updateBatchButton"
+          >
+            Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="JS/admin_courses-batches.js"></script>
   </body>
 </html>
