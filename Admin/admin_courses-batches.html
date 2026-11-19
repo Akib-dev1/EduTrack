@@ -133,7 +133,12 @@
                     </td>
 
                     <td class="table-cell right-text">
-                      <button type="button" class="edit-button">Edit</button>
+                      <button
+                        type="button"
+                        class="edit-course-button edit-button"
+                      >
+                        Edit
+                      </button>
                     </td>
                   </tr>
                 </tbody>
@@ -216,7 +221,12 @@
                     </td>
 
                     <td class="table-cell right-text">
-                      <button type="button" class="edit-button">Edit</button>
+                      <button
+                        type="button"
+                        class="edit-button edit-batch-button"
+                      >
+                        Edit
+                      </button>
                     </td>
                   </tr>
                 </tbody>
@@ -425,9 +435,13 @@
         </div>
       </form>
     </div>
-
+    <!-- Edit Course Modal -->
     <div id="editCourseModal" class="cb-modal">
-      <form id="editCourseForm" class="cb-modal-box" novalidate>
+      <form
+        id="editCourseForm"
+        class="cb-modal-box"
+        onsubmit="return validateEditCourse();"
+      >
         <div class="cb-modal-top">
           <h3>Edit Course</h3>
           <button type="button" class="cb-close" id="edit-course-close">
@@ -449,7 +463,6 @@
                 type="text"
                 placeholder="Enter course name"
               />
-              <i class="fa-solid fa-circle-exclamation cb-input-icon"></i>
             </div>
             <p class="cb-error" id="editCourseNameErr"></p>
           </div>
@@ -506,7 +519,11 @@
 
     <!-- EDIT BATCH MODAL -->
     <div id="editBatchModal" class="cb-modal">
-      <form id="editBatchForm" class="cb-modal-box" novalidate>
+      <form
+        id="editBatchForm"
+        class="cb-modal-box"
+        onsubmit="return validateEditBatch();"
+      >
         <div class="cb-modal-top">
           <h3>Edit Batch</h3>
           <button type="button" class="cb-close" id="edit-batch-close">
@@ -528,7 +545,6 @@
                 type="text"
                 placeholder="Enter batch identifier..."
               />
-              <i class="fa-solid fa-circle-exclamation cb-input-icon"></i>
             </div>
             <p class="cb-error" id="editBatchNameErr"></p>
           </div>
@@ -576,7 +592,6 @@
                   min="0"
                   placeholder="0"
                 />
-                <i class="fa-solid fa-circle-exclamation cb-input-icon"></i>
               </div>
               <p class="cb-error" id="editBatchFeeErr"></p>
             </div>
@@ -594,13 +609,6 @@
           <div class="cb-note">
             <i class="fa-solid fa-circle-info"></i>
             Changing the fee does not affect existing enrollments.
-          </div>
-
-          <div class="cb-alert-error cb-hidden" id="editBatchAlert">
-            <i class="fa-solid fa-circle-exclamation"></i>
-            <span id="editBatchAlertText"
-              >2 validation issues need your attention before saving.</span
-            >
           </div>
         </div>
 
@@ -622,7 +630,6 @@
         </div>
       </form>
     </div>
-
     <script src="JS/admin_courses-batches.js"></script>
   </body>
 </html>
