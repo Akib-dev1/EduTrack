@@ -305,5 +305,233 @@
         </div>
       </div>
     </div>
+    <!-- ENROLL STUDENT MODAL -->
+    <div id="enrollModal" class="en-modal">
+      <form id="enrollForm" class="en-modal-box">
+        <div class="en-modal-top">
+          <h3><i class="fa-solid fa-user-plus"></i> Enroll Student</h3>
+          <button type="button" class="en-close" id="enroll-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="en-modal-body">
+          <div class="en-alert-error en-hidden" id="enrollConflict">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div>
+              <p class="en-alert-title">Conflict Detected</p>
+              <p>This student is already enrolled in this batch.</p>
+            </div>
+          </div>
+
+          <div class="en-field">
+            <label for="enrollStudent">Select Student</label>
+            <select id="enrollStudent" name="enrollStudent">
+              <option value="" selected disabled>Select student</option>
+              <option value="STU-2026-104">
+                Ayesha Siddiqua (STU-2026-104)
+              </option>
+              <option value="STU-2026-081">Rahim Uddin (STU-2026-081)</option>
+              <option value="STU-2025-119">Tanvir Hasan (STU-2025-119)</option>
+            </select>
+            <p class="en-error" id="enrollStudentErr"></p>
+          </div>
+
+          <div class="en-field">
+            <label for="enrollBatch">Select Batch</label>
+            <select id="enrollBatch" name="enrollBatch">
+              <option value="" selected disabled>Select batch</option>
+              <option value="physics-morning-a" data-fee="1500">
+                Physics Morning A (HSC Physics)
+              </option>
+              <option value="math-pioneer-01" data-fee="1200">
+                Math Pioneer Batch 01 (SSC Math)
+              </option>
+            </select>
+            <p class="en-error" id="enrollBatchErr"></p>
+          </div>
+
+          <div class="en-field-row">
+            <div class="en-field">
+              <label for="enrollStart">Start Month</label>
+              <input id="enrollStart" name="enrollStart" type="month" />
+              <p class="en-error" id="enrollStartErr"></p>
+            </div>
+
+            <div class="en-field">
+              <label for="enrollEnd"
+                >End Month <span class="en-optional">(optional)</span></label
+              >
+              <input id="enrollEnd" name="enrollEnd" type="month" />
+              <p class="en-hint">
+                Leave blank if the enrollment continues indefinitely.
+              </p>
+              <p class="en-error" id="enrollEndErr"></p>
+            </div>
+          </div>
+
+          <div class="en-fee-box">
+            <i class="fa-solid fa-lock"></i>
+            <div class="en-fee-text">
+              <p class="en-fee-label">Agreed Monthly Fee</p>
+              <p class="en-hint">
+                Fee is copied from the batch and will not change later.
+              </p>
+            </div>
+            <p class="en-fee-amount" id="enrollFee">৳1,500</p>
+          </div>
+        </div>
+
+        <div class="en-modal-footer">
+          <button type="button" class="en-btn en-btn-light" id="enroll-cancel">
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="en-btn en-btn-dark"
+            id="saveEnrollButton"
+          >
+            Enroll
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- EDIT ENROLLMENT MODAL -->
+    <div id="editEnrollModal" class="en-modal">
+      <form id="editEnrollForm" class="en-modal-box">
+        <div class="en-modal-top">
+          <h3>
+            <i class="fa-regular fa-calendar-check"></i> Edit Enrollment — Rahim
+            Uddin
+          </h3>
+          <button type="button" class="en-close" id="edit-enroll-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="en-modal-body">
+          <div class="en-field">
+            <label for="editEnrollStudent">Student</label>
+            <div class="en-lock-wrap">
+              <input
+                id="editEnrollStudent"
+                type="text"
+                value="Rahim Uddin (STU-2026-081)"
+                readonly
+              />
+              <i class="fa-solid fa-lock"></i>
+            </div>
+          </div>
+
+          <div class="en-field">
+            <label for="editEnrollBatch">Batch Assignment</label>
+            <div class="en-lock-wrap">
+              <input
+                id="editEnrollBatch"
+                type="text"
+                value="Physics Morning A (HSC Physics)"
+                readonly
+              />
+              <i class="fa-solid fa-lock"></i>
+            </div>
+          </div>
+
+          <div class="en-field">
+            <label>Agreed Fee</label>
+            <div class="en-fee-readonly">
+              <p class="en-fee-amount" id="editEnrollFee">৳1,500 / month</p>
+              <p class="en-hint">Fee cannot be changed here.</p>
+            </div>
+          </div>
+
+          <div class="en-field-row">
+            <div class="en-field">
+              <label for="editEnrollStart">Editable Start Month</label>
+              <input
+                id="editEnrollStart"
+                name="editEnrollStart"
+                type="month"
+                value="2026-01"
+              />
+              <p class="en-error" id="editEnrollStartErr"></p>
+            </div>
+
+            <div class="en-field">
+              <label for="editEnrollEnd">Editable End Month</label>
+              <input
+                id="editEnrollEnd"
+                name="editEnrollEnd"
+                type="month"
+                value="2026-05"
+              />
+              <p class="en-error" id="editEnrollEndErr"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="en-modal-footer">
+          <button
+            type="button"
+            class="en-btn en-btn-light"
+            id="edit-enroll-cancel"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="en-btn en-btn-dark"
+            id="updateEnrollButton"
+          >
+            Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- END ENROLLMENT MODAL -->
+    <div id="endEnrollModal" class="en-modal">
+      <div class="en-modal-box">
+        <div class="en-modal-body en-end-top">
+          <div class="en-end-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <div>
+            <h3 class="en-end-title">End this enrollment?</h3>
+            <p class="en-end-sub" id="endEnrollSub">
+              PHYSICS MORNING A • RAHIM UDDIN
+            </p>
+          </div>
+        </div>
+
+        <div class="en-modal-body">
+          <div class="en-end-message">
+            Are you sure you want to end
+            <strong>Rahim Uddin's</strong> enrollment in
+            <strong>Physics Morning A</strong>? Future monthly charges will stop
+            immediately. Past billing records will be preserved.
+          </div>
+        </div>
+
+        <div class="en-modal-footer">
+          <button
+            type="button"
+            class="en-btn en-btn-light"
+            id="end-enroll-cancel"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            class="en-btn en-btn-danger"
+            id="confirmEndButton"
+          >
+            <i class="fa-regular fa-circle-xmark"></i> End Enrollment
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="JS/admin_studentEnroll.js"></script>
   </body>
 </html>

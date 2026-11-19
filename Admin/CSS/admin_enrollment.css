@@ -441,3 +441,300 @@
   font-weight: 300;
   color: #64748b;
 }
+/* Modal helpers */
+.en-hidden {
+  display: none !important;
+}
+
+.en-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgb(15 23 42 / 0.5);
+}
+.en-modal.open {
+  display: flex;
+}
+.en-modal-box {
+  width: 100%;
+  max-width: 28rem;
+  max-height: 92vh;
+  overflow-y: auto;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.2);
+}
+.en-modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 0.5rem;
+}
+.en-modal-top h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+.en-modal-top h3 > i {
+  color: #2563eb;
+}
+.en-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #64748b;
+  cursor: pointer;
+}
+.en-close:hover {
+  background-color: #eef2f7;
+}
+.en-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+.en-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem 1.25rem;
+}
+
+/* Modal buttons */
+.en-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.en-btn-dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+.en-btn-dark:hover {
+  background-color: #1e293b;
+}
+.en-btn-light {
+  background-color: #eef3ff;
+  color: #334155;
+}
+.en-btn-light:hover {
+  background-color: #e2e8f0;
+}
+.en-btn-danger {
+  background-color: #b91c1c;
+  color: #ffffff;
+}
+.en-btn-danger:hover {
+  background-color: #991b1b;
+}
+
+/* Fields */
+.en-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.en-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.en-field > label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #334155;
+}
+.en-optional {
+  color: #64748b;
+  font-weight: 300;
+}
+.en-field input,
+.en-field select {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #eef3ff;
+  border-radius: 0.4rem;
+  background-color: #eef3ff;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #0f172a;
+  outline: none;
+}
+.en-field input:focus,
+.en-field select:focus {
+  border-color: #94a3b8;
+  background-color: white;
+}
+.en-field input[readonly] {
+  cursor: not-allowed;
+  padding-right: 2rem;
+}
+.en-hint {
+  font-size: 0.68rem;
+  font-weight: 300;
+  color: #64748b;
+}
+
+/* Locked fields */
+.en-lock-wrap {
+  position: relative;
+}
+.en-lock-wrap > i {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: #64748b;
+}
+.en-fee-readonly {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.4rem;
+  background-color: #eef3ff;
+}
+.en-fee-readonly .en-fee-amount {
+  font-size: 0.8rem;
+}
+.en-fee-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.4rem;
+  background-color: #f1f5f9;
+}
+.en-fee-box > i {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+.en-fee-text {
+  flex-grow: 1;
+}
+.en-fee-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  color: #334155;
+}
+.en-fee-amount {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+/* Validation */
+.en-error {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #dc2626;
+}
+.en-error:empty {
+  display: none;
+}
+.en-field:has(.en-error:not(:empty)) input,
+.en-field:has(.en-error:not(:empty)) select {
+  border-color: #fca5a5;
+  background-color: #fef2f2;
+}
+.en-field:has(.en-error:not(:empty)) > label {
+  color: #b91c1c;
+}
+.en-alert-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.4rem;
+  background-color: #fef2f2;
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: #b91c1c;
+}
+.en-alert-error > i {
+  margin-top: 0.1rem;
+  font-size: 0.9rem;
+}
+.en-alert-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* End enrollment modal */
+.en-end-top {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.9rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0;
+}
+.en-end-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.6rem;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  font-size: 1.1rem;
+}
+.en-end-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+.en-end-sub {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  color: #475569;
+}
+.en-end-message {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f4f7fa;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #334155;
+}
+.en-end-message strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+@media (max-width: 40rem) {
+  .en-field-row {
+    grid-template-columns: 1fr;
+  }
+}
