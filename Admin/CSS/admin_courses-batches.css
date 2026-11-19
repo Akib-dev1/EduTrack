@@ -518,9 +518,3 @@
   font-weight: 400;
   color: #b91c1c;
 }
-
-@media (max-width: 40rem) {
-  .cb-field-row {
-    grid-template-columns: 1fr;
-  }
-}

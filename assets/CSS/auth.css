@@ -211,25 +211,8 @@
   background-color: #1e293b;
 }
 
-/* Tablet and mobile */
-@media (max-width: 900px) {
-  .auth-page {
-    flex-direction: column;
-  }
-
-  .auth-side {
-    flex: none;
-    padding: 1.5rem;
-  }
-
-  .auth-side-text,
-  .auth-side-footer {
-    display: none;
-  }
-}
-
-@media (max-width: 520px) {
-  .auth-card {
-    padding: 1.5rem;
-  }
+#loginErr {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #dc2626;
 }

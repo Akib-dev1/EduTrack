@@ -732,9 +732,3 @@
   font-weight: 600;
   color: #0f172a;
 }
-
-@media (max-width: 40rem) {
-  .en-field-row {
-    grid-template-columns: 1fr;
-  }
-}
