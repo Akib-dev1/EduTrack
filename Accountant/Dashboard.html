@@ -36,7 +36,7 @@
           </div>
           <div class="links">
             <a href="fee-collection.html"
-              ><i class="fa-solid fa-user-group"></i>Fee Collectio</a
+              ><i class="fa-solid fa-user-group"></i>Fee Collection</a
             >
           </div>
           <div class="links">
@@ -103,18 +103,18 @@
         </div>
 
         <!-- Details Card -->
-        <div class="detail-card-box">
+        <div class="detail-card-box" >
           <div class="detail-card">
             <div class="card-title">
               <h5>Expected Fees</h5>
-              <span class="icon-gray"
-                ><i class="fa-regular fa-credit-card"></i
-              ></span>
+              <span class="icon-gray">
+                <i class="fa-regular fa-credit-card"></i>
+              </span>
             </div>
-            <p>৳ 1,86,000</p>
+            <p id="expected-total">৳ 1,86,000</p>
             <div class="card-footer">
               <span class="dot"></span>
-              <span>Total projected tuition for Nov 2026</span>
+              <span id="expected-note">Total projected tuition for Nov 2026</span>
             </div>
           </div>
 
@@ -123,13 +123,13 @@
               <h5>Payments Received</h5>
               <span class="icon-green"><i class="fa-solid fa-check"></i></span>
             </div>
-            <p>৳ 1,24,500</p>
+            <p id="paid-total">৳ 1,24,500</p>
             <div class="card-footer">
-              <span class="green-text"
-                ><i class="fa-solid fa-arrow-trend-up"></i> 66.9% collected</span
-              >
-              ·
-              <span>84 transactions</span>
+              <span class="green-text" id="paid-percent">
+                <i class="fa-solid fa-arrow-trend-up"></i> 66.9% collected
+              </span>
+                  ·
+              <span id="paid-count">84 transactions</span>
             </div>
           </div>
 
@@ -140,10 +140,10 @@
                 ><i class="fa-solid fa-exclamation"></i
               ></span>
             </div>
-            <p class="red-text">৳ 61,500</p>
+            <p class="red-text" id="outstanding-total">৳ 61,500</p>
             <div class="card-footer red-text">
               <i class="fa-regular fa-circle-question"></i>
-              <span>৳38,000 overdue from previous terms</span>
+              <span id="overdue-note">৳38,000 overdue from previous terms</span>
             </div>
           </div>
         </div>
@@ -169,6 +169,7 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input
                   type="search"
+                  id="search"
                   placeholder="Search student, payment ID, batch..."
                   aria-label="Search payments"
                 />
