@@ -58,7 +58,7 @@ const getRecentPayments = () => {
     const student = findById(data.students, en.studentId);
     const batch = findById(data.batches, en.batchId);
     const searchable = (paymentCode(p.id) + " " + student.name + " " + batch.name).toLowerCase();
-    if (!text || searchable.indexOf(text) !== -1) {
+        if (p.billingMonth === monthSelect.value && (!text || searchable.indexOf(text) !== -1)) {
       result.push(p);
     }
   }
@@ -129,7 +129,10 @@ recentTbody.addEventListener("click", (e) => {
   }
 });
 
-monthSelect.addEventListener("change", renderCards);
+monthSelect.addEventListener("change", () => {
+  renderCards();
+  renderRecentPayments();
+});
 searchInput.addEventListener("input", renderRecentPayments);
 filterButton.addEventListener("click", renderRecentPayments);
 
