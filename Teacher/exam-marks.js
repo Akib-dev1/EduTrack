@@ -9,6 +9,7 @@ const students = [
 ];
 
 const totalMarks = 50;
+const minMarks = 0;
 
 const batchSelect = document.getElementById("examBatch");
 const examSelect = document.getElementById("examSelect");
@@ -32,6 +33,10 @@ const marksInput = document.getElementById("newTotalMarks");
 const titleError = document.getElementById("newTitleErr");
 const dateError = document.getElementById("newDateErr");
 const marksInputError = document.getElementById("newMarksErr");
+
+function isValidMark(mark) {
+  return Number.isInteger(mark) && mark >= minMarks && mark <= totalMarks;
+}
 
 function getPercentage(marks) {
   if (marks === "") {
@@ -116,15 +121,11 @@ tableBody.addEventListener("input", function (event) {
   const index = Number(event.target.dataset.index);
   const typed = event.target.value;
 
-  if (typed !== "" && Number(typed) > totalMarks) {
+  if (typed !== "" && !isValidMark(Number(typed))) {
+    alert("Please enter a number between " + minMarks + " and " + totalMarks + ".");
     event.target.value = students[index].marks;
-    marksError.textContent =
-      students[index].id + ": Marks cannot be more than " + totalMarks + ".";
-    marksError.classList.add("show");
     return;
   }
-
-  marksError.classList.remove("show");
 
   if (typed === "") {
     students[index].marks = "";
@@ -144,7 +145,7 @@ saveButton.addEventListener("click", function () {
 
   for (let i = 0; i < students.length; i++) {
     const marks = students[i].marks;
-    if (marks !== "" && (marks < 0 || marks > totalMarks || !Number.isInteger(marks))) {
+    if (marks !== "" && !isValidMark(marks)) {
       invalidStudent = students[i];
       break;
     }
@@ -152,7 +153,7 @@ saveButton.addEventListener("click", function () {
 
   if (invalidStudent !== null) {
     marksError.textContent =
-      invalidStudent.id + ": Marks must be an integer between 0 and " + totalMarks + ".";
+      invalidStudent.id + ": Marks must be a number between " + minMarks + " and " + totalMarks + ".";
     marksError.classList.add("show");
     return;
   }
@@ -208,8 +209,6 @@ examForm.addEventListener("submit", function (event) {
   examSelect.dispatchEvent(new Event("change"));
   examForm.reset();
 });
-
-
 
 document.getElementById("logoutBtn").addEventListener("click", function () {
   confirm("Are you sure you want to sign out?");
