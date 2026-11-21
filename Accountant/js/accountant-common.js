@@ -1,4 +1,4 @@
-const DEMO_KEY = "scholivance_demo_v1";
+const DEMO_KEY = "scholivance_demo_v2";
 const CURRENT_MONTH = "2026-11";
 const MONTH_LIST = ["2026-11", "2026-10", "2026-09"];
 const MONTH_NAMES = [
