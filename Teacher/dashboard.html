@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>EduTrack - Teacher Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div>
+          <div class="brand">
+            <div class="brand-logo"><i class="fa-solid fa-book-open"></i></div>
+            <div><strong>EduTrack</strong><span>Teacher Portal</span></div>
+          </div>
+          <nav class="nav">
+            <h5>MENU</h5>
+            <a class="active" href="dashboard.html"
+              ><i class="fa-solid fa-grid-horizontal"></i>Dashboard</a>
+            <a class="" href="students.html"
+              ><i class="fa-regular fa-user"></i>My Students</a>
+            <a class="" href="attendance.html"
+              ><i class="fa-regular fa-calendar-check"></i>Attendance</a>
+            <a class="" href="exam-marks.html"
+              ><i class="fa-regular fa-file-lines"></i>Exam &amp; Marks</a>
+          </nav>
+        </div>
+        <button class="logout-btn" id="logoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout
+        </button>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="crumb">
+            <span>Teacher Portal</span><b>/</b><strong>Dashboard</strong>
+          </div>
+          <div class="user">
+            <i class="fa-regular fa-bell notification"></i>
+            <div class="avatar">KH</div>
+            <div class="user-text">
+              <strong>Mr. Kamal Hossain</strong
+              ><span><em>Teacher</em> Dhanmondi Campus</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="content">
+         
+          <div class="page-head">
+            <div>
+              <h1>Welcome, Mr. Kamal Hossain</h1>
+              <p>
+                Here are your assigned batches and upcoming schedules for this
+                term.
+              </p>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="card stat">
+              <div class="stat-top">
+                ASSIGNED BATCHES
+                <span class="stat-icon"
+                  ><i class="fa-solid fa-briefcase"></i
+                ></span>
+              </div>
+              <div class="stat-value">3</div>
+              <div class="stat-foot">
+                <span>3 active schedules</span
+                ><span class="green">● All on track</span>
+              </div>
+            </div>
+            <div class="card stat">
+              <div class="stat-top">
+                TOTAL STUDENTS
+                <span class="stat-icon"><i class="fa-solid fa-users"></i></span>
+              </div>
+              <div class="stat-value">72</div>
+              <div class="stat-foot">
+                <span>Enrolled across sections</span><span>Avg 24 / batch</span>
+              </div>
+            </div>
+            <div class="card stat">
+              <div class="stat-top">
+                CLASSES THIS WEEK
+                <span class="stat-icon"
+                  ><i class="fa-regular fa-calendar"></i
+                ></span>
+              </div>
+              <div class="stat-value">9</div>
+              <div class="stat-foot">
+                <span>Scheduled sessions</span
+                ><span class="blue">Next: Today, 5:00 PM</span>
+              </div>
+            </div>
+          </div>
+          <div class="section-title">
+            <div>
+              <h2>My Batches</h2>
+              <p>
+                Manage attendance, syllabus progress, and test evaluations for
+                your sections.
+              </p>
+            </div>
+            <div class="tools">
+              <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i
+                ><input
+                  id="batchSearch"
+                  type="search"
+                  placeholder="Search batch..."
+                />
+              </div>
+              <button class="filter" id="showActive">
+                <i class="fa-solid fa-filter"></i>Filter
+              </button>
+            </div>
+          </div>
+          <div class="batch-grid" id="batchGrid">
+            <article class="card batch-card" data-batch="physics morning a">
+              <div class="tag-row">
+                <span class="tag">HSC Physics</span
+                ><span class="status">Active</span>
+              </div>
+              <h3>Physics Morning A</h3>
+              <p class="sub">Higher Secondary Paper I • Class 12</p>
+              <div class="details">
+                <span
+                  ><i class="fa-regular fa-clock"></i>Sun, Tue, Thu • 5:00 PM -
+                  6:00 PM</span
+                ><span
+                  ><i class="fa-solid fa-location-dot"></i>Room 302 • Dhanmondi
+                  Campus</span
+                ><span
+                  ><i class="fa-regular fa-user"></i>24 Students &nbsp;<span
+                    class="muted"
+                    >(section Cap: 30)</span
+                  ></span
+                >
+              </div>
+              <div class="card-actions">
+                <button class="primary take" data-batch="Physics Morning A">
+                  Take Attendance</button
+                ><button class="marks" data-batch="Physics Morning A">
+                  Enter Marks
+                </button>
+              </div>
+            </article>
+            <article class="card batch-card" data-batch="physics evening b">
+              <div class="tag-row">
+                <span class="tag">HSC Physics</span
+                ><span class="status">Active</span>
+              </div>
+              <h3>Physics Evening B</h3>
+              <p class="sub">Higher Secondary Paper II • Class 12</p>
+              <div class="details">
+                <span
+                  ><i class="fa-regular fa-clock"></i>Mon, Wed • 5:00 PM - 7:00
+                  PM</span
+                ><span
+                  ><i class="fa-solid fa-location-dot"></i>Lab 2 • Dhanmondi
+                  Campus</span
+                ><span
+                  ><i class="fa-regular fa-user"></i>24 Students &nbsp;<span
+                    class="muted"
+                    >(section Cap: 25)</span
+                  ></span
+                >
+              </div>
+              <div class="card-actions">
+                <button class="primary take" data-batch="Physics Evening B">
+                  Take Attendance</button
+                ><button class="marks" data-batch="Physics Evening B">
+                  Enter Marks
+                </button>
+              </div>
+            </article>
+            <article class="card batch-card" data-batch="physics revision c">
+              <div class="tag-row">
+                <span class="tag purple">SSC Physics</span
+                ><span class="status">Active</span>
+              </div>
+              <h3>Physics Revision C</h3>
+              <p class="sub">Comprehensive Practice • Class 10</p>
+              <div class="details">
+                <span
+                  ><i class="fa-regular fa-clock"></i>Fri, Sat • 9:00 AM - 11:30
+                  AM</span
+                ><span
+                  ><i class="fa-solid fa-location-dot"></i>Auditorium B •
+                  Dhanmondi Campus</span
+                ><span
+                  ><i class="fa-regular fa-user"></i>24 Students &nbsp;<span
+                    class="muted"
+                    >(section Cap: 30)</span
+                  ></span
+                >
+              </div>
+              <div class="card-actions">
+                <button class="primary take" data-batch="Physics Revision C">
+                  Take Attendance</button
+                ><button class="marks" data-batch="Physics Revision C">
+                  Enter Marks
+                </button>
+              </div>
+            </article>
+          </div>
+          
+        </div>
+      </main>
+    </div>
+    
+    <script src="dashboard.js"></script>
+  </body>
+</html>

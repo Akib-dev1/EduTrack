@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>EduTrack Teacher Portal - Exam &amp; Marks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="exam-marks.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div>
+          <div class="brand">
+            <div class="brand-logo"><i class="fa-solid fa-book-open"></i></div>
+            <div><strong>EduTrack</strong><span>Teacher Portal</span></div>
+          </div>
+          <nav class="nav">
+            <h5>MENU</h5>
+            <a class="" href="dashboard.html"
+              ><i class="fa-solid fa-grid-horizontal"></i>Dashboard</a
+            >
+            <a class="" href="students.html"
+              ><i class="fa-regular fa-user"></i>My Students</a
+            >
+            <a class="" href="attendance.html"
+              ><i class="fa-regular fa-calendar-check"></i>Attendance</a
+            >
+            <a class="active" href="exam-marks.html"
+              ><i class="fa-regular fa-file-lines"></i>Exam &amp; Marks</a
+            >
+          </nav>
+        </div>
+        <button class="logout-btn" id="logoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout
+        </button>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <div class="crumb">
+            <span>Teacher Portal</span><b>/</b><strong>Exam & Marks</strong>
+          </div>
+          <div class="user">
+            <i class="fa-regular fa-bell notification"></i>
+            <div class="avatar">KH</div>
+            <div class="user-text">
+              <strong>Mr. Kamal Hossain</strong
+              ><span><em>Teacher</em> Dhanmondi Campus</span>
+            </div>
+          </div>
+        </header>
+        <div class="content">
+         
+          <div class="page-head">
+            <div>
+              <h1>Exam &amp; Marks</h1>
+              <p>Create exams and enter student marks.</p>
+            </div>
+            
+          </div>
+          <div class="card panel">
+            <div class="form-grid">
+              <div class="field">
+                <label for="examBatch">SELECT BATCH</label
+                ><select id="examBatch">
+                  <option value="">Select batch</option>
+                  <option value="morning">
+                    Physics Morning A (HSC Physics)
+                  </option>
+                  <option value="evening">
+                    Physics Evening B (HSC Physics)
+                  </option>
+                  <option value="revision">
+                    Physics Revision C (SSC Physics)
+                  </option></select
+                ><small id="examBatchErr"></small>
+              </div>
+              <div class="field">
+                <label for="examSelect">SELECT EXAM</label
+                ><select id="examSelect">
+                  <option value="">Select exam</option>
+                  <option value="chapter1">Chapter 1 Test (10 Nov 2026)</option>
+                  <option value="midterm">
+                    Midterm Assessment (24 Oct 2026)
+                  </option>
+                  <option value="vectors">
+                    Vectors &amp; Mechanics Quiz (15 Sep 2026)
+                  </option></select
+                ><small id="examSelectErr"></small>
+              </div>
+              <div class="field">
+                <label>&nbsp;</label
+                ><button class="primary" id="newExam">
+                  <i class="fa-solid fa-plus"></i>Create New Exam
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card panel" id="marksPanel" style="display: none">
+            <div class="panel-head">
+              <div>
+                <h2>
+                  Chapter 1 Test
+                  <span class="muted"
+                    >· Total Marks: 50 · Physics Morning A</span
+                  >
+                </h2>
+                <p>
+                  Enter valid marks for each student. Blank is allowed for
+                  not-yet-entered scores.
+                </p>
+              </div>
+              <button class="secondary" id="exportMarks">
+                <i class="fa-solid fa-download"></i>Export Marks (CSV)
+              </button>
+            </div>
+            
+            <div id="marksError" class="error-box"></div>
+            <div class="table-wrap" style="margin-top: 15px">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Obtained Marks</th>
+                    <th>Percentage</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="marksRows"></tbody>
+              </table>
+            </div>
+            <div class="save-row">
+              <span class="progress" id="marksProgress"></span
+              ><button class="primary" id="saveMarks">
+                <i class="fa-solid fa-floppy-disk"></i>Save Marks
+              </button>
+            </div>
+          </div>
+          <div class="empty" id="marksEmpty">
+            <i class="fa-regular fa-file-lines"></i
+            ><strong>Select a batch and exam to enter marks.</strong>
+            <p>
+              Choose an active batch and scheduled assessment from the dropdowns
+              above to load the student gradebook.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="modal" id="examModal">
+      <div class="modal-box">
+        <div class="modal-head">
+          <div>
+            <h2>Create New Assessment</h2>
+            <p class="muted">Form Active</p>
+          </div>
+          <button id="closeExam" aria-label="Close">&times;</button>
+        </div>
+        <form id="examForm" novalidate>
+          <div class="field">
+            <label for="newExamTitle">EXAM TITLE</label
+            ><input
+              id="newExamTitle"
+              maxlength="80"
+              placeholder="e.g. Chapter 2: Kinematics"
+            /><small id="newTitleErr"></small>
+          </div>
+          <div class="form-grid" style="margin-top: 8px">
+            <div class="field">
+              <label for="newExamDate">EXAM DATE</label
+              ><input id="newExamDate" type="date" /><small
+                id="newDateErr"
+              ></small>
+            </div>
+            <div class="field">
+              <label for="newTotalMarks">TOTAL MARKS</label
+              ><input
+                id="newTotalMarks"
+                type="number"
+                min="1"
+                max="1000"
+                step="1"
+                placeholder="50"
+              /><small id="newMarksErr"></small>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="secondary" id="cancelExam">
+              Cancel</button
+            ><button type="submit" class="primary">Save Exam</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="exam-marks.js"></script>
+  </body>
+</html>

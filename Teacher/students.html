@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>EduTrack - My Students</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="students.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div>
+          <div class="brand">
+            <div class="brand-logo"><i class="fa-solid fa-book-open"></i></div>
+            <div><strong>EduTrack</strong><span>Teacher Portal</span></div>
+          </div>
+          <nav class="nav">
+            <h5>MENU</h5>
+            <a class="" href="dashboard.html"
+              ><i class="fa-solid fa-grid-horizontal"></i>Dashboard</a
+            >
+            <a class="active" href="students.html"
+              ><i class="fa-regular fa-user"></i>My Students</a
+            >
+            <a class="" href="attendance.html"
+              ><i class="fa-regular fa-calendar-check"></i>Attendance</a
+            >
+            <a class="" href="exam-marks.html"
+              ><i class="fa-regular fa-file-lines"></i>Exam &amp; Marks</a
+            >
+          </nav>
+        </div>
+        <button class="logout-btn" id="logoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout
+        </button>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <div class="crumb">
+            <span>Teacher Portal</span><b>/</b><strong>My Students</strong>
+          </div>
+          <div class="user">
+            <i class="fa-regular fa-bell notification"></i>
+            <div class="avatar">KH</div>
+            <div class="user-text">
+              <strong>Mr. Kamal Hossain</strong
+              ><span><em>Teacher</em> Dhanmondi Campus</span>
+            </div>
+          </div>
+        </header>
+        <div class="content">
+          
+          <div class="page-head">
+            <div>
+              <h1>My Students</h1>
+              <p>View students in your assigned batches.</p>
+            </div>
+          </div>
+          <div class="card panel">
+            
+            <div class="field batch-field">
+              <label for="batchSelect">SELECT BATCH</label
+              ><select id="batchSelect">
+                <option value="all">All Assigned Batches </option>
+                <option value="morning">Physics Morning A (HSC)</option>
+                <option value="evening">Physics Evening B (HSC)</option>
+                <option value="revision">Physics Revision C (SSC)</option>
+              </select>
+            </div>
+          </div>
+          <div class="card panel">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Batch</th>
+                    <th>Enrollment Start</th>
+                    <th>Enrollment End</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="studentRows"></tbody>
+              </table>
+            </div>
+            <div class="pagination">
+              <span id="resultText"></span>
+              <div class="pages" id="pages"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="students.js"></script>
+  </body>
+</html>

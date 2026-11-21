@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>EduTrack - Attendance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="attendance.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div>
+          <div class="brand">
+            <div class="brand-logo"><i class="fa-solid fa-book-open"></i></div>
+            <div><strong>EduTrack</strong><span>Teacher Portal</span></div>
+          </div>
+          <nav class="nav">
+            <h5>MENU</h5>
+            <a class="" href="dashboard.html"
+              ><i class="fa-solid fa-grid-horizontal"></i>Dashboard</a
+            >
+            <a class="" href="students.html"
+              ><i class="fa-regular fa-user"></i>My Students</a
+            >
+            <a class="active" href="attendance.html"
+              ><i class="fa-regular fa-calendar-check"></i>Attendance</a
+            >
+            <a class="" href="exam-marks.html"
+              ><i class="fa-regular fa-file-lines"></i>Exam &amp; Marks</a
+            >
+          </nav>
+        </div>
+        <button class="logout-btn" id="logoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout
+        </button>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <div class="crumb">
+            <span>Teacher Portal</span><b>/</b><strong>Attendance</strong>
+          </div>
+          <div class="user">
+            <i class="fa-regular fa-bell notification"></i>
+            <div class="avatar">KH</div>
+            <div class="user-text">
+              <strong>Mr. Kamal Hossain</strong
+              ><span><em>Teacher</em> Dhanmondi Campus</span>
+            </div>
+          </div>
+        </header>
+        <div class="content">
+          
+          <div class="page-head">
+            <div>
+              <h1>Attendance</h1>
+              <p>Mark attendance for your batches.</p>
+            </div>
+            <span class="badge active"
+              ><i class="fa-solid fa-arrows-rotate"></i> Live Sync Active</span
+            >
+          </div>
+          <div class="card panel">
+            <div class="panel-head">
+              <div>
+                <h2>Load Attendance Roster</h2>
+                <p>Choose a batch and class date before loading students.</p>
+              </div>
+            </div>
+            <div id="loadError" class="error-box"></div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="attBatch">SELECT BATCH</label
+                ><select id="attBatch">
+                  <option value="">Select batch</option>
+                  <option value="Physics Morning A">
+                    Physics Morning A (HSC Physics)
+                  </option>
+                  <option value="Physics Evening B">
+                    Physics Evening B (HSC Physics)
+                  </option>
+                  <option value="Physics Revision C">
+                    Physics Revision C (SSC Physics)
+                  </option></select
+                ><small id="attBatchErr"></small>
+              </div>
+              <div class="field">
+                <label for="classDate">CLASS DATE</label
+                ><input id="classDate" type="date" /><small
+                  id="classDateErr"
+                ></small>
+              </div>
+              <div class="field">
+                <label>&nbsp;</label
+                ><button class="primary" id="loadStudents">
+                  <i class="fa-solid fa-users"></i>Load Students
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card panel" id="attendancePanel" style="display: none">
+            <div class="panel-head">
+              <div>
+                <h2 id="attendanceTitle">Physics Morning A • Class</h2>
+                <p>Room 402 • 08:30 AM - 10:00 AM • HSC Batch 2026</p>
+              </div>
+              
+            </div>
+            
+            <div id="attendanceError" class="error-box"></div>
+            <div class="table-wrap" style="margin-top: 15px">
+              <table class="data-table attendance-list">
+                <thead>
+                  <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Attendance Status</th>
+                  </tr>
+                </thead>
+                <tbody id="attendanceRows"></tbody>
+              </table>
+            </div>
+            <div class="save-row">
+              <span class="progress" id="attProgress"
+                >0 of 8 students marked</span
+              >
+              <div>
+                <button class="secondary" id="resetAttendance">Reset</button>
+                <button class="primary" id="saveAttendance">
+                  <i class="fa-solid fa-floppy-disk"></i>Save Attendance
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="empty" id="attendanceEmpty">
+            <i class="fa-regular fa-calendar-xmark"></i
+            ><strong>Select a batch and date to load attendance.</strong>
+            <p>
+              Choose an active batch and a scheduled class date above to load
+              the student roster.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="attendance.js"></script>
+  </body>
+</html>
