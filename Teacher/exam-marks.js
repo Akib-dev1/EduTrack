@@ -78,7 +78,7 @@ function drawMarks() {
         '<td><div class="person">' +
           '<span class="mini-avatar">' + s.initials + "</span>" +
           "<span><strong>" + s.name + "</strong>" +
-          '<small class="student-id"> Roll: ' + (101 + i) + " • Science Group</small></span>" +
+          '<small class="student-id">Roll: ' + (101 + i) + " • Science Group</small></span>" +
         "</div></td>" +
         "<td>" +
           '<input class="mark-input" data-index="' + i + '" type="number" min="0" max="' + totalMarks + '" step="1" ' +
@@ -115,6 +115,16 @@ tableBody.addEventListener("input", function (event) {
 
   const index = Number(event.target.dataset.index);
   const typed = event.target.value;
+
+  if (typed !== "" && Number(typed) > totalMarks) {
+    event.target.value = students[index].marks;
+    marksError.textContent =
+      students[index].id + ": Marks cannot be more than " + totalMarks + ".";
+    marksError.classList.add("show");
+    return;
+  }
+
+  marksError.classList.remove("show");
 
   if (typed === "") {
     students[index].marks = "";
