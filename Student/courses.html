@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Courses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/student.css">
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html"><span class="brand-mark">E</span><span>EduTrack<small>Student
+            Portal</small></span></a>
+      <p class="nav-title">MENU</p>
+      <nav aria-label="Student pages">
+        <a href="dashboard.html"><span class="nav-icon">⌂</span>Dashboard</a>
+        <a class="active" href="courses.html" aria-current="page"><span class="nav-icon">▤</span>My Courses</a>
+        <a href="attendance.html"><span class="nav-icon">◷</span>My Attendance</a>
+        <a href="results.html"><span class="nav-icon">▧</span>My Results</a>
+      </nav>
+      <button class="sign-out" type="button"><span class="nav-icon">↪</span>Sign out</button>
+    </aside>
+    <div class="content">
+      <header class="topbar">
+        <p class="breadcrumb">Student Portal <span>/</span> <strong>My Courses</strong></p>
+        <div class="account"><span class="notice-dot"></span><span class="avatar">SR</span><span
+            class="account-name"><strong>Samira Rahman</strong><small>STU-301</small></span></div>
+      </header>
+      <main>
+     
+        <div class="welcome-row">
+          <div>
+            <h1>My Courses</h1>
+            <p>Review your batches, teachers, and assigned schedules.</p>
+          </div>
+        
+        </div>
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Course Enrollments</h2>
+              <p>Your enrollment information and agreed monthly fees.</p>
+            </div>
+            <div class="filters"><label for="course-filter">Enrollment status<select id="course-filter">
+                  <option value="all">All courses</option>
+                  <option value="active">Active</option>
+                  <option value="ended">Ended</option>
+                </select></label></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>COURSE / SUBJECT</th>
+                  <th>BATCH NAME</th>
+                  <th>FACULTY INSTRUCTOR</th>
+                  <th>ASSIGNED SCHEDULE</th>
+                  <th>MONTHLY FEE</th>
+                  <th>ENROLLED</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mathematics</td>
+                  <td><strong>Maths - Morning</strong></td>
+                  <td>Nadia Karim</td>
+                  <td>Sunday and Tuesday, 9:00-10:00 AM</td>
+                  <td>৳ 5,000</td>
+                  <td>January 2026 - Ongoing</td>
+                  <td><span class="status status-active">Active</span></td>
+                </tr>
+                <tr>
+                  <td>English</td>
+                  <td><strong>English - Evening</strong></td>
+                  <td>Rafi Ahmed</td>
+                  <td>Monday and Wednesday, 4:00-5:00 PM</td>
+                  <td>৳ 3,500</td>
+                  <td>February 2026 - Ongoing</td>
+                  <td><span class="status status-active">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+      
+    </div>
+  </div>
+</body>
+
+</html>

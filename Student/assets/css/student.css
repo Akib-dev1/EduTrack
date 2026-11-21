@@ -1,0 +1,571 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  color: #172b4d;
+  background: #f5f8fc;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+/* Dashboard typography */
+body.dashboard-page {
+  font-family: "Oswald", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus,
+button:focus,
+select:focus,
+input:focus,
+summary:focus {
+  outline: 3px solid #eca900;
+  outline-offset: 2px;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 2. Sidebar and navigation */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 170px;
+  min-height: 100vh;
+  padding: 18px 12px 10px;
+  background: #fff;
+  border-right: 1px solid #e8edf4;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 4px 22px;
+  color: #122541;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.brand small,
+.account-name small {
+  display: block;
+  margin-top: 2px;
+  color: #8a9ab1;
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.brand-mark,
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  color: #fff;
+  background: #101d35;
+  border-radius: 9px;
+  font-size: 12px;
+}
+
+.nav-title {
+  margin: 0 4px 8px;
+  color: #93a2b8;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sidebar nav a,
+.sign-out {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 34px;
+  padding: 7px 9px;
+  color: #29405f;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: #eef3f8;
+  color: #173b63;
+}
+
+
+.nav-icon {
+  width: 14px;
+  color: #7d91ab;
+  font-size: 14px;
+  text-align: center;
+}
+
+.sign-out {
+  margin-top: auto;
+  border-top: 1px solid #edf1f6;
+  border-radius: 0;
+}
+
+/* 3. Main layout and account header */
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  padding: 9px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e7edf4;
+}
+
+.breadcrumb {
+  margin: 0;
+  color: #8797ad;
+  font-size: 11px;
+}
+
+.breadcrumb span {
+  margin: 0 7px;
+  color: #bac5d2;
+}
+
+.breadcrumb strong {
+  color: #263d5a;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.notice-dot {
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  background: #31b78b;
+  border-radius: 50%;
+}
+
+.account .avatar {
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+.account-name {
+  color: #253955;
+  font-size: 10px;
+}
+
+.account-name small {
+  font-size: 9px;
+}
+
+/* 4. Dashboard content and headings */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 20px 24px 28px;
+}
+
+.notice {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 36px;
+  margin: 0 0 19px;
+  padding: 8px 12px;
+  color: #3a526f;
+  background: #fff;
+  border: 1px solid #e2eaf3;
+  border-radius: 9px;
+  font-size: 10px;
+}
+
+.notice strong {
+  color: #16b783;
+  font-size: 11px;
+}
+
+.notice span {
+  color: #a4b0c1;
+}
+
+.welcome-row,
+.section-heading,
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.welcome-row {
+  margin-bottom: 15px;
+}
+
+h1 {
+  margin: 0 0 3px;
+  color: #142a49;
+  font-size: 19px;
+}
+
+h2 {
+  margin: 0 0 4px;
+  color: #203756;
+  font-size: 13px;
+}
+
+.welcome-row p,
+.section-heading p,
+.panel-heading p {
+  margin: 0;
+  color: #8495ad;
+  font-size: 10px;
+}
+
+.view-only {
+  padding: 7px 9px;
+  color: #70849e;
+  background: #f0f4f9;
+  border: 1px solid #e4eaf2;
+  border-radius: 5px;
+  font-size: 9px !important;
+}
+
+/* 5. Panels and profile details */
+.panel,
+.card,
+.reference-panel {
+  background: #fff;
+  border: 1px solid #e3eaf2;
+  border-radius: 12px;
+}
+
+.panel {
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.profile {
+  padding: 12px 15px;
+}
+
+.panel-heading {
+  padding: 12px 14px;
+}
+
+.profile .panel-heading {
+  padding: 0 0 13px;
+}
+
+.panel-heading h2 {
+  color: #1b3556;
+}
+
+.panel-heading h2 span {
+  margin-right: 6px;
+  color: #7c91ac;
+}
+
+.profile dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+}
+
+.profile dl div {
+  flex: 1 1 85px;
+}
+
+dt {
+  margin-bottom: 4px;
+  color: #8b9bb1;
+  font-size: 8px;
+  letter-spacing: 0.3px;
+}
+
+dd {
+  margin: 0;
+  color: #172d4b;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* 6. Status labels */
+.status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.status-active,
+.status-paid {
+  color: #168567;
+  background: #e6f8f2;
+}
+
+.status-unpaid {
+  color: #bd6b00;
+  background: #fff5df;
+}
+
+.status-absent,
+.status-due {
+  color: #d11e43;
+  background: #fff0f2;
+}
+
+/* 7. Fee summary cards */
+.fee-section {
+  margin-top: 17px;
+}
+
+.section-heading {
+  margin-bottom: 9px;
+}
+
+.section-heading h2 {
+  margin-bottom: 3px;
+}
+
+.section-heading > span {
+  color: #8c9bb1;
+  font-size: 9px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.card {
+  flex: 1 1 150px;
+  min-width: 0;
+  padding: 12px;
+}
+
+.card-label,
+.card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-label {
+  color: #8798ae;
+  font-size: 8px;
+}
+
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: #6d849e;
+  background: #f2f6fa;
+  border-radius: 6px;
+  font-size: 10px;
+}
+
+.paid-card .card-icon {
+  color: #1eb58a;
+  background: #e8f8f3;
+}
+
+.due-card {
+  border-top: 2px solid #f5a400;
+}
+
+.due-card .card-icon {
+  color: #dc8b00;
+  background: #fff7e6;
+}
+
+.card > strong {
+  display: block;
+  margin: 7px 0 10px;
+  color: #122744;
+  font-size: 20px;
+}
+
+.paid-card > strong,
+.green-text {
+  color: #129674;
+}
+
+.due-card > strong,
+.due-label {
+  color: #df1742;
+}
+
+.card-foot {
+  color: #8b9ab0;
+  font-size: 8px;
+}
+
+.due-label {
+  padding: 3px 6px;
+  background: #fff7e8;
+  border-radius: 3px;
+}
+
+/* 8. Data tables */
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #edf1f6;
+  vertical-align: middle;
+}
+
+th {
+  color: #8797ad;
+  background: #fafbfd;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+td {
+  color: #344a67;
+  font-size: 9px;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+td strong {
+  color: #203756;
+}
+
+.subtext {
+  display: block;
+  margin-top: 3px;
+  color: #94a3b8;
+  font-size: 8px;
+}
+
+.money-paid {
+  color: #129674;
+}
+
+.money-due {
+  color: #d91c43;
+}
+
+.empty {
+  padding: 18px;
+  color: #7d8fa7;
+  text-align: center;
+}
+
+/* 9. Filters, messages, and footer */
+.filters {
+  display: flex;
+  align-items: end;
+  gap: 9px;
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #7487a0;
+  font-size: 9px;
+}
+
+.filters select,
+.filters input,
+.filters button {
+  min-height: 31px;
+  padding: 5px 8px;
+  color: #344a67;
+  background: #fff;
+  border: 1px solid #dfe6ef;
+  border-radius: 5px;
+  font: inherit;
+}
+
+.filters button {
+  cursor: pointer;
+  font-size: 9px;
+}
+
+.filters button:hover {
+  background: #f0f4f9;
+}
+
+.reference-panel {
+  margin-top: 14px;
+  padding: 11px 13px;
+  color: #405772;
+  font-size: 10px;
+}
+
+.reference-panel summary {
+  cursor: pointer;
+}
+
+.reference-panel summary span {
+  float: right;
+  color: #94a3b8;
+  font-size: 8px;
+}
+
+.reference-panel p {
+  margin-bottom: 2px;
+  color: #71839b;
+}
+
+

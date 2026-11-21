@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/student.css">
+  <script src="assets/js/results.js" defer></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html"><span class="brand-mark">E</span><span>EduTrack<small>Student Portal</small></span></a>
+      <p class="nav-title">MENU</p>
+      <nav aria-label="Student pages">
+        <a href="dashboard.html"><span class="nav-icon">⌂</span>Dashboard</a>
+        <a href="courses.html"><span class="nav-icon">▤</span>My Courses</a>
+        <a href="attendance.html"><span class="nav-icon">◷</span>My Attendance</a>
+        <a class="active" href="results.html" aria-current="page"><span class="nav-icon">▧</span>My Results</a>
+      </nav>
+      <button class="sign-out" type="button"><span class="nav-icon">↪</span>Sign out</button>
+    </aside>
+    <div class="content">
+      <header class="topbar">
+        <p class="breadcrumb">Student Portal <span>/</span> <strong>My Results</strong></p>
+        <div class="account"><span class="notice-dot"></span><span class="avatar">SR</span><span class="account-name"><strong>Samira Rahman</strong><small>STU-301</small></span></div>
+      </header>
+      <main>
+        
+        <div class="welcome-row"><div><h1>My Results</h1><p>Review exam scores for your enrolled batches.</p></div>
+      </div>
+        <section class="panel">
+          <div class="panel-heading"><div><h2>Exam Results</h2><p>Percentages are calculated from the obtained and total marks.</p></div>
+            <div class="filters">
+              <label for="results-batch">Batch
+                <select id="results-batch">
+                  <option value="all">All batches</option>
+                  <option value="21">Maths - Morning</option>
+                  <option value="22">English - Evening</option>
+                </select>
+              </label>
+              <button id="reset-results" type="button">Reset</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>EXAM TITLE</th><th>BATCH NAME</th><th>EXAM DATE</th><th>OBTAINED / TOTAL</th><th>PERCENTAGE</th></tr></thead>
+              <tbody id="results-table">
+                <tr data-batch="21">
+                  <td>Chapter 1 test</td>
+                  <td>Maths - Morning</td>
+                  <td>2026-11-06</td>
+                  <td>78 / 100</td>
+                  <td>78.0%</td>
+                </tr>
+                <tr data-batch="21">
+                  <td>Practice test</td>
+                  <td>Maths - Morning</td>
+                  <td>2026-11-13</td>
+                  <td>0 / 50</td>
+                  <td>0.0%</td>
+                </tr>
+                <tr data-batch="22">
+                  <td>Vocabulary quiz</td>
+                  <td>English - Evening</td>
+                  <td>2026-11-12</td>
+                  <td>16 / 20</td>
+                  <td>80.0%</td>
+                </tr>
+                <tr data-batch="21">
+                  <td>Monthly review</td>
+                  <td>Maths - Morning</td>
+                  <td>2026-11-15</td>
+                  <td>Not entered</td>
+                  <td>--</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+    </div>
+  </div>
+</body>
+</html>
