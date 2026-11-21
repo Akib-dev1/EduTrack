@@ -445,4 +445,65 @@ header > h4 > span {
     flex-direction: column;
     align-items: stretch;
   }
+ }
+
+  
+
+  .status.partial {
+  border-color: #fde68a;
+  background-color: #fffbeb;
+  color: #d97706;
+  }
+
+
+ .status.unpaid {
+  border-color: #fecaca;
+  background-color: #fef2f2;
+  color: #e11d48;
+ }
+
+
+ .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
 }
+.modal.open {
+  display: flex;
+}
+.modal-box {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 420px;
+}
+.modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.modal-box .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.modal-box input {
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+.modal-box .form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.error { color: #b91c1c; font-size: 13px; }
+.message.success { color: #15803d; }
+.message.error { color: #b91c1c; }

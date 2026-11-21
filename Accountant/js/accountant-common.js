@@ -10,12 +10,12 @@ const MONTH_NAMES = [
 const getSeedData = () => {
   return {
     students: [
-      { id: 1, name: "Rahim Uddin", phone: "01711-000001" },
+      { id: 1, name: "Kareeb Mahtab", phone: "01711-000001" },
       { id: 2, name: "Nusrat Jahan", phone: "01811-000002" },
-      { id: 3, name: "Tanvir Hasan", phone: "01911-000003" },
-      { id: 4, name: "Farhana Akter", phone: "01611-000004" },
-      { id: 5, name: "Mahir Faisal", phone: "01511-000005" },
-      { id: 6, name: "Sadman Sakib", phone: "01311-000006" },
+      { id: 3, name: "Tanvir Ahmed", phone: "01911-000003" },
+      { id: 4, name: "Akib Anjum", phone: "01611-000004" },
+      { id: 5, name: "Abdur Rahim Rafi", phone: "01511-000005" },
+      { id: 6, name: "Shafayetur Rahman", phone: "01311-000006" },
       { id: 7, name: "Anika Tabassum", phone: "01411-000007" },
       { id: 8, name: "Mehedi Hasan", phone: "01711-000008" },
     ],

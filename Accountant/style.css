@@ -665,3 +665,15 @@ header > h4 > span {
     padding: 1rem;
   }
 }
+  .status.partial {
+  border-color: #fde68a;
+  background-color: #fffbeb;
+  color: #d97706;
+  }
+
+
+  .status.unpaid {
+  border-color: #fecaca;
+  background-color: #fef2f2;
+  color: #e11d48;
+  }

@@ -132,6 +132,7 @@
           </div>
         </div>
 
+        <p id="message"></p>
         <!-- Payment History Table -->
         <div class="payment-box">
           <div class="table-box">
@@ -150,7 +151,7 @@
               </thead>
 
               <tbody>
-                <tr>
+                <!--<tr>
                   <td class="payment-id">PAY-0105</td>
                   <td class="student-name">Rahim Uddin</td>
                   <td>Physics Morning A</td>
@@ -308,12 +309,40 @@
                       </button>
                     </div>
                   </td>
-                </tr>
+                </tr>-->
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
+    <div class="modal" id="editModal">
+    <div class="modal-box">
+     <div class="modal-top">
+       <h4 id="edit-title">Edit Payment</h4>
+       <button type="button" id="edit-close">&times;</button>
+     </div>
+     <p id="edit-info"></p>
+     <form id="editForm">
+       <div class="form-group">
+         <label for="edit-date">Payment Date</label>
+         <input type="date" id="edit-date" />
+         <span class="error" id="editDateErr"></span>
+       </div>
+       <div class="form-group">
+         <label for="edit-amount">Payment Amount</label>
+         <input type="number" id="edit-amount" />
+         <span class="error" id="editAmountErr"></span>
+       </div>
+       <div class="form-buttons">
+         <button type="button" class="outline-button" id="edit-cancel">Cancel</button>
+         <button type="button" class="dark-button" id="editSaveButton">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+    <script src="js/accountant-common.js"></script>
+    <script src="js/history.js"></script>
   </body>
 </html>
