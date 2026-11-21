@@ -1,5 +1,9 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
 }
 
 body {
@@ -8,6 +12,11 @@ body {
   background: #f5f8fc;
   font-family: Arial, sans-serif;
   font-size: 13px;
+}
+
+/* Dashboard typography */
+body.dashboard-page {
+  font-family: "Oswald", Arial, sans-serif;
 }
 
 a {
@@ -29,6 +38,7 @@ summary:focus {
   min-height: 100vh;
 }
 
+/* 2. Sidebar and navigation */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -107,6 +117,7 @@ summary:focus {
   color: #173b63;
 }
 
+
 .nav-icon {
   width: 14px;
   color: #7d91ab;
@@ -120,6 +131,7 @@ summary:focus {
   border-radius: 0;
 }
 
+/* 3. Main layout and account header */
 .content {
   display: flex;
   flex: 1;
@@ -180,6 +192,7 @@ summary:focus {
   font-size: 9px;
 }
 
+/* 4. Dashboard content and headings */
 main {
   flex: 1;
   width: 100%;
@@ -253,6 +266,7 @@ h2 {
   font-size: 9px !important;
 }
 
+/* 5. Panels and profile details */
 .panel,
 .card,
 .reference-panel {
@@ -312,6 +326,7 @@ dd {
   font-weight: bold;
 }
 
+/* 6. Status labels */
 .status {
   display: inline-block;
   padding: 4px 8px;
@@ -337,6 +352,7 @@ dd {
   background: #fff0f2;
 }
 
+/* 7. Fee summary cards */
 .fee-section {
   margin-top: 17px;
 }
@@ -434,6 +450,7 @@ dd {
   border-radius: 3px;
 }
 
+/* 8. Data tables */
 .table-wrap {
   overflow-x: auto;
 }
@@ -493,6 +510,7 @@ td strong {
   text-align: center;
 }
 
+/* 9. Filters, messages, and footer */
 .filters {
   display: flex;
   align-items: end;
@@ -508,7 +526,8 @@ td strong {
 }
 
 .filters select,
-.filters input {
+.filters input,
+.filters button {
   min-height: 31px;
   padding: 5px 8px;
   color: #344a67;
@@ -516,6 +535,15 @@ td strong {
   border: 1px solid #dfe6ef;
   border-radius: 5px;
   font: inherit;
+}
+
+.filters button {
+  cursor: pointer;
+  font-size: 9px;
+}
+
+.filters button:hover {
+  background: #f0f4f9;
 }
 
 .reference-panel {
@@ -540,22 +568,4 @@ td strong {
   color: #71839b;
 }
 
-.message {
-  display: none;
-  margin-top: 12px;
-  padding: 10px;
-  color: #168567;
-  background: #e6f8f2;
-  border-radius: 6px;
-}
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 24px;
-  color: #8797ad;
-  background: #fff;
-  border-top: 1px solid #e8edf4;
-  font-size: 8px;
-}

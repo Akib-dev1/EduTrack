@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Student Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/student.css">
-  <script src="assets/js/student-data.js" defer></script>
-  <script src="assets/js/student.js" defer></script>
 </head>
-<body data-page="dashboard">
+<body class="dashboard-page">
   <div class="layout">
     <aside class="sidebar">
       <a class="brand" href="dashboard.html"><span class="brand-mark">E</span><span>EduTrack<small>Student Portal</small></span></a>
@@ -19,60 +20,99 @@
         <a href="attendance.html"><span class="nav-icon">◷</span>My Attendance</a>
         <a href="results.html"><span class="nav-icon">▧</span>My Results</a>
       </nav>
-      <button class="sign-out" type="button" data-logout><span class="nav-icon">↪</span>Sign out</button>
+      <button class="sign-out" type="button"><span class="nav-icon">↪</span>Sign out</button>
     </aside>
     <div class="content">
       <header class="topbar">
         <p class="breadcrumb">Student Portal <span>/</span> <strong>Dashboard</strong></p>
         <div class="account">
           <span class="notice-dot" aria-label="No new notifications"></span>
-          <span class="avatar" data-student-initials>SR</span>
-          <span class="account-name"><strong data-student-name>Demo student</strong><small data-student-id>Student ID</small></span>
+          <span class="avatar">SR</span>
+          <span class="account-name"><strong>Samira Rahman</strong><small>STU-301</small></span>
         </div>
       </header>
       <main>
-        <p class="notice"><strong>●</strong> Academic Term 2026 Synchronized <span>—</span> Student schedule and fee status updated for Dhanmondi Campus.</p>
+      
         <div class="welcome-row">
-          <div><h1>Welcome, <span id="first-name">Student</span></h1><p>Here is your overview for this month.</p></div>
-          <p class="view-only">ⓘ This page is view-only. Contact the center for changes.</p>
+          <div><h1>Welcome, Samira</h1><p>Here is your overview for this month.</p></div>
+
         </div>
         <section class="panel profile" aria-labelledby="profile-title">
           <div class="panel-heading"><h2 id="profile-title"><span>♙</span> STUDENT PROFILE</h2><span class="status status-active">● Active Student</span></div>
           <dl>
-            <div><dt>STUDENT ID</dt><dd id="student-id"></dd></div>
-            <div><dt>FULL NAME</dt><dd id="student-name"></dd></div>
-            <div><dt>USERNAME</dt><dd id="student-username"></dd></div>
-            <div><dt>CONTACT PHONE</dt><dd id="student-phone"></dd></div>
+            <div><dt>STUDENT ID</dt><dd>STU-301</dd></div>
+            <div><dt>FULL NAME</dt><dd>Samira Rahman</dd></div>
+            <div><dt>USERNAME</dt><dd>samira.demo</dd></div>
+            <div><dt>CONTACT PHONE</dt><dd>0123-456-789</dd></div>
             <div><dt>CAMPUS</dt><dd>Dhanmondi Main Campus</dd></div>
           </dl>
         </section>
         <section class="fee-section">
           <div class="section-heading">
-            <div><h2>Fee Summary, <span id="current-month"></span></h2><p>Monthly billing breakdown and outstanding balance.</p></div>
+            <div><h2>Fee Summary, November 2026</h2><p>Monthly billing breakdown and outstanding balance.</p></div>
             <span>Currency: BDT (৳)</span>
           </div>
           <div class="cards">
-            <article class="card"><div class="card-label"><span>EXPECTED FEES</span><b class="card-icon">৳</b></div><strong id="fee-expected">৳ 0</strong><div class="card-foot"><span id="batch-count">0 Enrolled Batches</span><span>Total charge</span></div></article>
-            <article class="card paid-card"><div class="card-label"><span>PAID THIS MONTH</span><b class="card-icon">✓</b></div><strong id="fee-paid">৳ 0</strong><div class="card-foot"><span class="green-text">Paid this month</span><span>Receipt demo</span></div></article>
-            <article class="card due-card"><div class="card-label"><span>REMAINING BALANCE</span><b class="card-icon">৳</b></div><strong id="fee-due">৳ 0</strong><div class="card-foot"><span class="due-label">Amount remaining</span><span id="unpaid-count">0 Unpaid Items</span></div></article>
+            <article class="card"><div class="card-label"><span>EXPECTED FEES</span><b class="card-icon">৳</b></div><strong>৳ 8,500</strong><div class="card-foot"><span>2 Enrolled Batches</span><span>Total charge</span></div></article>
+            <article class="card paid-card"><div class="card-label"><span>PAID THIS MONTH</span><b class="card-icon">✓</b></div><strong>৳ 6,500</strong><div class="card-foot"><span class="green-text">Paid this month</span><span>Receipt demo</span></div></article>
+            <article class="card due-card"><div class="card-label"><span>REMAINING BALANCE</span><b class="card-icon">৳</b></div><strong>৳ 2,000</strong><div class="card-foot"><span class="due-label">Amount remaining</span><span>1 Unpaid Item</span></div></article>
           </div>
         </section>
         <section class="panel" aria-labelledby="fee-breakdown-title">
           <div class="panel-heading"><div><h2 id="fee-breakdown-title">Fee Breakdown</h2><p>Itemized batch charges for the current billing cycle.</p></div></div>
           <div class="table-wrap">
-            <table><thead><tr><th>BATCH NAME</th><th>EXPECTED FEE</th><th>PAID</th><th>REMAINING</th><th>STATUS</th></tr></thead><tbody id="fee-breakdown"></tbody></table>
+            <table>
+              <thead>
+                <tr><th>BATCH NAME</th><th>EXPECTED FEE</th><th>PAID</th><th>REMAINING</th><th>STATUS</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Maths - Morning</strong></td>
+                  <td>৳ 5,000</td>
+                  <td class="money-paid">৳ 3,000</td>
+                  <td class="money-due">৳ 2,000</td>
+                  <td><span class="status status-unpaid">Unpaid</span></td>
+                </tr>
+                <tr>
+                  <td><strong>English - Evening</strong></td>
+                  <td>৳ 3,500</td>
+                  <td class="money-paid">৳ 3,500</td>
+                  <td>৳ 0</td>
+                  <td><span class="status status-paid">Paid</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
         <section class="panel" aria-labelledby="batches-title">
           <div class="panel-heading"><div><h2 id="batches-title">My Active Batches</h2><p>Faculty schedules and classes you are presently registered for.</p></div></div>
           <div class="table-wrap">
-            <table><thead><tr><th>BATCH NAME</th><th>COURSE / SUBJECT</th><th>FACULTY INSTRUCTOR</th><th>ASSIGNED SCHEDULE</th><th>STATUS</th></tr></thead><tbody id="dashboard-batches"></tbody></table>
+            <table>
+              <thead>
+                <tr><th>BATCH NAME</th><th>COURSE / SUBJECT</th><th>FACULTY INSTRUCTOR</th><th>ASSIGNED SCHEDULE</th><th>STATUS</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Maths - Morning</strong></td>
+                  <td>Mathematics</td>
+                  <td>Nadia Karim</td>
+                  <td>Sunday and Tuesday, 9:00-10:00 AM</td>
+                  <td><span class="status status-active">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong>English - Evening</strong></td>
+                  <td>English</td>
+                  <td>Rafi Ahmed</td>
+                  <td>Monday and Wednesday, 4:00-5:00 PM</td>
+                  <td><span class="status status-active">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
-        <details class="reference-panel"><summary>Portal display reference &amp; empty states <span>Click to toggle sample states.</span></summary><p>Attendance without records displays “--”. Exams without a saved mark display “Not entered”. Your data in this screen is fictional demo data.</p></details>
-        <p class="message" id="logout-message" role="status"></p>
+
       </main>
-      <footer><span>© 2026 EduTrack Academic Portal. All rights reserved.</span><span>Dhanmondi Main Campus · Support: help@edutrack.edu</span></footer>
+ 
     </div>
   </div>
 </body>

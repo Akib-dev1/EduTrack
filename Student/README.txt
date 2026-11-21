@@ -361,12 +361,12 @@ and tested. The first submission is the finished frontend prototype.
 Open dashboard.html, courses.html, attendance.html, or results.html from
 this folder in a browser. The four pages share:
 - assets/css/student.css for the layout and flexbox styles.
-- assets/js/student-data.js for fictional student demo records.
-- assets/js/student.js for page rendering and simple filters.
+- HTML tables and profile fields for the fictional demo records.
 
-The demo is read-only and does not save changes or provide real sign-in.
-The dashboard fee cards use the current calendar month; attendance uses
-the month and batch selected on its page. The results list includes a
-zero score and an exam with no score entered.
-Student fees are displayed in Bangladeshi taka (BDT) using the sample
-integer-minor-unit amounts in student-data.js.
+The demo data is embedded directly in the HTML and is read-only. These
+pages do not load demo records from JavaScript. Only results.html uses
+assets/js/results.js, for filtering by batch and resetting the filter.
+Other filter controls are static examples. Attendance totals show the
+November demo data. The results list includes a zero score and an exam
+with no score entered. Student fees are displayed in Bangladeshi taka
+(BDT).

@@ -1,17 +1,21 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Attendance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/student.css">
-  <script src="assets/js/student-data.js" defer></script>
-  <script src="assets/js/student.js" defer></script>
 </head>
-<body data-page="attendance">
+
+<body>
   <div class="layout">
     <aside class="sidebar">
-      <a class="brand" href="dashboard.html"><span class="brand-mark">E</span><span>EduTrack<small>Student Portal</small></span></a>
+      <a class="brand" href="dashboard.html"><span class="brand-mark">E</span><span>EduTrack<small>Student
+            Portal</small></span></a>
       <p class="nav-title">MENU</p>
       <nav aria-label="Student pages">
         <a href="dashboard.html"><span class="nav-icon">⌂</span>Dashboard</a>
@@ -19,32 +23,99 @@
         <a class="active" href="attendance.html" aria-current="page"><span class="nav-icon">◷</span>My Attendance</a>
         <a href="results.html"><span class="nav-icon">▧</span>My Results</a>
       </nav>
-      <button class="sign-out" type="button" data-logout><span class="nav-icon">↪</span>Sign out</button>
+      <button class="sign-out" type="button"><span class="nav-icon">↪</span>Sign out</button>
     </aside>
     <div class="content">
       <header class="topbar">
         <p class="breadcrumb">Student Portal <span>/</span> <strong>My Attendance</strong></p>
-        <div class="account"><span class="notice-dot"></span><span class="avatar" data-student-initials>SR</span><span class="account-name"><strong data-student-name>Demo student</strong><small data-student-id>Student ID</small></span></div>
+        <div class="account"><span class="notice-dot"></span><span class="avatar">SR</span><span
+            class="account-name"><strong>Samira Rahman</strong><small>STU-301</small></span></div>
       </header>
       <main>
-        <p class="notice"><strong>●</strong> Attendance shown here is based on classes recorded by your teachers.</p>
-        <div class="welcome-row"><div><h1>My Attendance</h1><p>Check your recorded attendance by batch and month.</p></div><p class="view-only">ⓘ This page is view-only. Contact the center for changes.</p></div>
+        
+        <div class="welcome-row">
+          <div>
+            <h1>My Attendance</h1>
+            <p>Check your recorded attendance by batch and month.</p>
+          </div>
+          
+        </div>
         <section class="panel">
-          <div class="panel-heading"><div><h2>Attendance Summary</h2><p>Only recorded present and absent classes are included.</p></div>
-            <div class="filters"><label for="attendance-batch">Batch<select id="attendance-batch"></select></label><label for="attendance-month">Month<input id="attendance-month" type="month"></label></div>
+          <div class="panel-heading">
+            <div>
+              <h2>Attendance Summary</h2>
+              <p>November totals across all batches; filters apply to the table below.</p>
+            </div>
+            <div class="filters"><label for="attendance-batch">Batch<select
+                  id="attendance-batch">
+                  <option value="all">All batches</option>
+                  <option value="21">Maths - Morning</option>
+                  <option value="22">English - Evening</option>
+                </select></label><label for="attendance-month">Month<input id="attendance-month"
+                  type="month" value="2026-11"></label></div>
           </div>
           <div class="cards attendance-cards">
-            <article class="card"><div class="card-label"><span>RECORDED CLASSES</span></div><strong id="attendance-total">0</strong></article>
-            <article class="card paid-card"><div class="card-label"><span>PRESENT</span></div><strong id="attendance-present">0</strong></article>
-            <article class="card due-card"><div class="card-label"><span>ABSENT</span></div><strong id="attendance-absent">0</strong></article>
-            <article class="card"><div class="card-label"><span>ATTENDANCE RATE</span></div><strong id="attendance-rate">--</strong></article>
+            <article class="card">
+            <div class="card-label"><span>RECORDED CLASSES</span></div><strong>6</strong>
+            </article>
+            <article class="card paid-card">
+            <div class="card-label"><span>PRESENT</span></div><strong>4</strong>
+            </article>
+            <article class="card due-card">
+            <div class="card-label"><span>ABSENT</span></div><strong>2</strong>
+            </article>
+            <article class="card">
+            <div class="card-label"><span>ATTENDANCE RATE</span></div><strong>66.7%</strong>
+            </article>
           </div>
-          <div class="table-wrap"><table><thead><tr><th>CLASS DATE</th><th>BATCH NAME</th><th>STATUS</th></tr></thead><tbody id="attendance-table"></tbody></table></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>CLASS DATE</th>
+                  <th>BATCH NAME</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2026-11-02</td>
+                  <td>Maths - Morning</td>
+                  <td><span class="status status-paid">Present</span></td>
+                </tr>
+                <tr>
+                  <td>2026-11-04</td>
+                  <td>Maths - Morning</td>
+                  <td><span class="status status-paid">Present</span></td>
+                </tr>
+                <tr>
+                  <td>2026-11-09</td>
+                  <td>Maths - Morning</td>
+                  <td><span class="status status-absent">Absent</span></td>
+                </tr>
+                <tr>
+                  <td>2026-11-11</td>
+                  <td>Maths - Morning</td>
+                  <td><span class="status status-paid">Present</span></td>
+                </tr>
+                <tr>
+                  <td>2026-11-03</td>
+                  <td>English - Evening</td>
+                  <td><span class="status status-paid">Present</span></td>
+                </tr>
+                <tr>
+                  <td>2026-11-10</td>
+                  <td>English - Evening</td>
+                  <td><span class="status status-absent">Absent</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
-        <p class="message" id="logout-message" role="status"></p>
       </main>
-      <footer><span>© 2026 EduTrack Academic Portal. All rights reserved.</span><span>Dhanmondi Main Campus · Support: help@edutrack.edu</span></footer>
+     
     </div>
   </div>
 </body>
+
 </html>
