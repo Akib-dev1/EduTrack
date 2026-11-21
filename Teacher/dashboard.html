@@ -1,11 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduTrack | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    
+  <aside class="sidebar">
+    <div class="logo"><i class="fa-solid fa-graduation-cap"></i>Edu<span>Track</span></div>
+    <nav class="nav">
+      <a class="active" href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="students.html"><i class="fa-solid fa-user-graduate"></i> My Students</a>
+      <a href="attendance.html"><i class="fa-solid fa-clipboard-user"></i> Attendance</a>
+      <a href="exams.html"><i class="fa-solid fa-file-pen"></i> Exam &amp; Marks</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="globalSearch" placeholder="Search anything...">
+      </div>
+      <div class="profile">
+        <span class="profile-avatar">MR</span>
+        <span>Mr. Rahman</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </header>
+    <section class="content">
+      <div class="page-heading">
+        <div><h1>Good morning, Mr. Rahman</h1><p>Here's what's happening with your classes today.</p></div>
+        <span id="todayDate"><i class="fa-solid fa-calendar-days"></i> 29 Oct 2026</span>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+          <div><div class="card-label">Total Students</div><div class="card-number">32</div><div class="card-note" id="studentsNote"><i class="fa-solid fa-arrow-up"></i> 2 this week</div></div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+          <div><div class="card-label">Classes Today</div><div class="card-number">3</div><div class="card-note">2 completed</div></div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+          <div><div class="card-label">Attendance Rate</div><div class="card-number">93%</div><div class="card-note" id="attendanceNote"><i class="fa-solid fa-arrow-up"></i> 5% from last week</div></div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-file-lines"></i></div>
+          <div><div class="card-label">Upcoming Exams</div><div class="card-number">2</div><div class="card-note">Next: 15 Nov 2026</div></div>
+        </div>
+      </div>
+      <div class="columns">
+        <section class="panel">
+          <h2>Today's Class Schedule</h2>
+          <div class="class-row"><span class="class-time"><i class="fa-regular fa-clock"></i> 09:00 – 10:00 AM</span><span class="class-name">Mathematics<small>Class 10A</small></span><span class="tag">Completed</span></div>
+          <div class="class-row"><span class="class-time"><i class="fa-regular fa-clock"></i> 11:00 – 12:00 PM</span><span class="class-name">Physics<small>Class 10B</small></span><span class="tag ongoing">Ongoing</span></div>
+          <div class="class-row"><span class="class-time"><i class="fa-regular fa-clock"></i> 02:00 – 03:00 PM</span><span class="class-name">Chemistry<small>Class 10A</small></span><span class="tag upcoming">Upcoming</span></div>
+        </section>
+        <section class="panel">
+          <h2>Quick Actions</h2>
+          <div class="quick-grid">
+            <button class="quick" data-href="attendance.html"><i class="fa-solid fa-clipboard-check"></i>Mark Attendance</button>
+            <button class="quick" data-href="exams.html"><i class="fa-solid fa-circle-plus"></i>Add Exam</button>
+            <button class="quick" data-href="students.html"><i class="fa-solid fa-users"></i>View Students</button>
+            <button class="quick" data-href="exams.html#marks"><i class="fa-solid fa-chart-column"></i>View Marks</button>
+          </div>
+        </section>
+      </div>
+      <section class="panel" id="motto">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <div><h2>Better students. Brighter futures.</h2><p>Keep going — you're making a difference.</p></div>
+      </section>
+    </section>
+  </main>
+  <script src="dashboard.js"></script>
 </body>
 </html>
