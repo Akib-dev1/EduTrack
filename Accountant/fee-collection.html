@@ -119,22 +119,25 @@
                   <option>Physics Morning A (HSC-25) — Prof. Anisur Rahman</option>
                   <option>Math Evening B (HSC-25) — Prof. Karim Hossain</option>
                 </select>
+                <span class="error" id="batchErr"></span>
               </div>
 
               <div class="form-group">
                 <label for="billing-month-input">Billing Month <span class="required">*</span></label>
                 <div class="input-box">
-                  <input type="text" id="billing-month-input" value="November 2026" />
+                  <input type="month" id="billing-month-input" />
                   <i class="fa-regular fa-calendar"></i>
                 </div>
+                <span class="error" id="monthErr"></span>
               </div>
 
               <div class="form-group">
                 <label for="payment-date">Payment Date <span class="required">*</span></label>
                 <div class="input-box">
-                  <input type="text" id="payment-date" value="04 Nov 2026" />
+                  <input type="date" id="payment-date" />
                   <i class="fa-regular fa-calendar"></i>
                 </div>
+                <span class="error" id="dateErr"></span>
               </div>
             </div>
 
@@ -142,23 +145,23 @@
             <div class="balance-box">
               <div class="balance-item line">
                 <h5>1. Expected Fee</h5>
-                <p class="balance-amount">৳1,500</p>
-                <span>Regular fee for Physics Morning A</span>
+                <p class="balance-amount" id="expected-fee">৳1,500</p>
+                <span id="expected-note">Regular fee for Physics Morning A</span>
               </div>
 
               <div class="balance-item line">
                 <h5>2. Already Paid</h5>
-                <p class="balance-amount">৳500</p>
-                <span>Recorded on 01 Nov 2026</span>
+                <p class="balance-amount" id="already-paid">৳500</p>
+                <span id="paid-note">Recorded on 01 Nov 2026</span>
               </div>
 
               <div class="balance-item">
                 <h5>
                   3. Remaining Balance
-                  <span class="pending-badge">Pending</span>
+                  <span class="pending-badge" id="pending-badge">Pending</span>
                 </h5>
-                <p class="balance-amount orange-text">৳1,000</p>
-                <span class="orange-text">Due before 10 Nov 2026</span>
+                <p class="balance-amount orange-text" id="remaining">৳1,000</p>
+                <span class="orange-text" id="remaining-note">Due before 10 Nov 2026</span>
               </div>
             </div>
 
@@ -167,9 +170,10 @@
                 <label for="amount">Payment Amount <span class="required">*</span></label>
                 <div class="input-box">
                   <span class="taka-sign">৳</span>
-                  <input type="number" id="amount" value="500" />
+                  <input type="number" id="amount" />
                   <span class="currency">BDT</span>
                 </div>
+                <span class="error" id="amountErr"></span>
               </div>
 
               <div class="form-group">
@@ -182,11 +186,12 @@
               </div>
             </div>
 
+            <p id="message"></p>
             <div class="form-bottom">
               <p class="form-note">
                 <i class="fa-regular fa-circle-question"></i>
                 Partial payments are allowed. Payment cannot exceed the remaining balance of
-                <strong>৳1,000</strong>.
+                <strong id="max-amount">৳1,000</strong>.
               </p>
               <div class="form-buttons">
                 <button type="reset" class="outline-button">Clear Form</button>
@@ -199,5 +204,8 @@
         </div>
       </div>
     </div>
+      <script src="js/accountant-common.js"></script>
+    <script src="js/collection.js"></script>
+  </body>
   </body>
 </html>
