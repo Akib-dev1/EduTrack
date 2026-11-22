@@ -343,3 +343,224 @@
 .action-box > button:hover {
   text-decoration: underline;
 }
+/* ---------- Batch Details Modal ---------- */
+.action-box > a {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #334155;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.action-box > a:hover {
+  text-decoration: underline;
+}
+
+.bd-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.bd-modal:target,
+.bd-modal.open {
+  display: flex;
+}
+
+.bd-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(15 23 42 / 0.45);
+  cursor: default;
+}
+
+.bd-modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  max-height: 100%;
+  overflow-y: auto;
+  border-radius: 1.5rem;
+  background-color: #ffffff;
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.15),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.bd-modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.bd-modal-top > h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.bd-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid;
+  border-radius: 50%;
+  background-color: #f1f1f6;
+  color: #64748b;
+  text-decoration: none;
+}
+
+.bd-close:hover {
+  background-color: #e5e7ef;
+}
+
+.bd-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.bd-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.bd-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.bd-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.bd-value {
+  display: flex;
+  align-items: center;
+  min-height: 2.6rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
+  background-color: #f4f4f8;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #0f172a;
+}
+
+.bd-value-strong {
+  font-weight: 500;
+}
+
+.bd-status {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.bd-status.active {
+  border-color: #a7f3d0;
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.bd-status.upcoming {
+  border-color: #e2e8f0;
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+.bd-enrollment {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.bd-enrollment-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.bd-enrollment-text small {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: #64748b;
+}
+
+.bd-seats {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: #64748b;
+}
+
+.bd-progress {
+  height: 0.4rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: #e2e8f0;
+}
+
+.bd-progress > span {
+  display: block;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: #1e293b;
+}
+
+.bd-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.bd-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bd-button-light {
+  background-color: #f4f4f8;
+  color: #0f172a;
+}
+
+.bd-button-light:hover {
+  background-color: #e8e8ef;
+}
+
+.bd-button-dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.bd-button-dark:hover {
+  background-color: #1e293b;
+}

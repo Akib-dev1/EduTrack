@@ -203,8 +203,7 @@
                   <td><span class="status active">Active</span></td>
                   <td>
                     <div class="action-box">
-                      <button type="button">Details</button>
-                      <button type="button">Manage</button>
+                      <button type="button" class="detail-btn">Details</button>
                     </div>
                   </td>
                 </tr>
@@ -223,8 +222,7 @@
                   <td><span class="status upcoming">Upcoming</span></td>
                   <td>
                     <div class="action-box">
-                      <button type="button">Details</button>
-                      <button type="button">Manage</button>
+                      <button type="button" class="detail-btn">Details</button>
                     </div>
                   </td>
                 </tr>
@@ -234,5 +232,73 @@
         </div>
       </div>
     </div>
+    <div id="batchDetailsModal" class="bd-modal">
+      <a href="#" class="bd-backdrop" aria-label="Close details"></a>
+
+      <div class="bd-modal-box" role="dialog" aria-labelledby="bdTitle">
+        <div class="bd-modal-top">
+          <h3 id="bdTitle">Batch Details</h3>
+          <button id="detailsModalClose" class="bd-close" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="bd-modal-body">
+          <div class="bd-field">
+            <p class="bd-label">Batch Name</p>
+            <p class="bd-value bd-value-strong">HSC-25 Physics Alpha</p>
+          </div>
+
+          <div class="bd-field-row">
+            <div class="bd-field">
+              <p class="bd-label">Course</p>
+              <p class="bd-value">General Physics</p>
+            </div>
+            <div class="bd-field">
+              <p class="bd-label">Assigned Teacher</p>
+              <p class="bd-value">Prof. Anisur Rahman</p>
+            </div>
+          </div>
+
+          <div class="bd-field">
+            <p class="bd-label">Weekly Schedule</p>
+            <p class="bd-value">Sunday, Tuesday, Thursday: 4:00 - 5:30 PM</p>
+          </div>
+
+          <div class="bd-field-row">
+            <div class="bd-field">
+              <p class="bd-label">Monthly Fee</p>
+              <p class="bd-value">৳ 3,000</p>
+            </div>
+            <div class="bd-field">
+              <p class="bd-label">Status</p>
+              <p class="bd-value">
+                <span class="bd-status active">Active</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="bd-field">
+            <p class="bd-label">Enrollment</p>
+            <div class="bd-value bd-enrollment">
+              <div class="bd-enrollment-text">
+                <span>28 <small>/ 30 students</small></span>
+                <span class="bd-seats">2 seats left</span>
+              </div>
+              <div class="bd-progress">
+                <span style="width: 93.3%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bd-modal-footer">
+          <a href="admin_courses-batches.html" class="bd-button bd-button-dark"
+            >Edit Batch</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="JS/admin_dashboard.js"></script>
   </body>
 </html>
