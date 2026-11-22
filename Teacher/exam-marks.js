@@ -1,11 +1,11 @@
 const students = [
-  { id: "STU-001", initials: "RU", name: "Rahim Uddin",      marks: 42 },
-  { id: "STU-002", initials: "NJ", name: "Nusrat Jahan",     marks: 0 },
-  { id: "STU-003", initials: "TH", name: "Tanvir Hasan",     marks: "" },
-  { id: "STU-004", initials: "SA", name: "Sadia Afrin",      marks: 48 },
+  { id: "STU-001", initials: "RU", name: "Rahim Uddin", marks: 42 },
+  { id: "STU-002", initials: "NJ", name: "Nusrat Jahan",  marks: 0 },
+  { id: "STU-003", initials: "TH", name: "Tanvir Hasan", marks: "" },
+  { id: "STU-004", initials: "SA", name: "Sadia Afrin", marks: 48 },
   { id: "STU-005", initials: "SH", name: "Md. Shakil Hasan", marks: 35 },
   { id: "STU-006", initials: "FZ", name: "Fatima Tuz Zohra", marks: "" },
-  { id: "STU-007", initials: "AF", name: "Abrar Fahim",      marks: 39 },
+  { id: "STU-007", initials: "AF", name: "Abrar Fahim", marks: 39 },
 ];
 
 const totalMarks = 50;
@@ -45,33 +45,6 @@ function getPercentage(marks) {
   return Math.round((marks / totalMarks) * 100) + "%";
 }
 
-function getStatusBadge(marks) {
-  if (marks === "") {
-    return '<span class="badge neutral">Not entered</span>';
-  }
-  return '<span class="badge active">Entered</span>';
-}
-
-function updateProgress() {
-  let entered = 0;
-  for (let i = 0; i < students.length; i++) {
-    if (students[i].marks !== "") {
-      entered++;
-    }
-  }
-  const percent = ((entered / students.length) * 100).toFixed(1);
-  progressText.textContent =
-    "Marks entered for " + entered + " of " + students.length + " students (" + percent + "%)";
-}
-
-function showToast(message) {
-  toast.textContent = message;
-  toast.classList.add("show");
-  setTimeout(function () {
-    toast.classList.remove("show");
-  }, 2500);
-}
-
 function drawMarks() {
   let html = "";
 
@@ -83,15 +56,13 @@ function drawMarks() {
         '<td><div class="person">' +
           '<span class="mini-avatar">' + s.initials + "</span>" +
           "<span><strong>" + s.name + "</strong>" +
-          '<small class="student-id">Roll: ' + (101 + i) + " • Science Group</small></span>" +
+          
         "</div></td>" +
         "<td>" +
           '<input class="mark-input" data-index="' + i + '" type="number" min="0" max="' + totalMarks + '" step="1" ' +
           'value="' + s.marks + '" placeholder="/ ' + totalMarks + '" ' +
-          'style="width:105px;height:36px;border:1px solid #d5dfeb;border-radius:7px;padding:0 9px">' +
         "</td>" +
-        '<td class="pct" data-index="' + i + '">' + getPercentage(s.marks) + "</td>" +
-        '<td class="mark-status" data-index="' + i + '">' + getStatusBadge(s.marks) + "</td>" +
+        
       "</tr>";
   }
 
@@ -114,30 +85,32 @@ examSelect.addEventListener("change", function () {
 });
 
 tableBody.addEventListener("input", function (event) {
-  if (!event.target.classList.contains("mark-input")) {
-    return;
-  }
+  const box = event.target;
+  const student = students[box.dataset.index];
 
-  const index = Number(event.target.dataset.index);
-  const typed = event.target.value;
-
-  if (typed !== "" && !isValidMark(Number(typed))) {
-    alert("Please enter a number between " + minMarks + " and " + totalMarks + ".");
-    event.target.value = students[index].marks;
-    return;
-  }
-
-  if (typed === "") {
-    students[index].marks = "";
+  if (box.value === "") {
+    student.marks = "";
   } else {
-    students[index].marks = Number(typed);
+    student.marks = Number(box.value);
   }
 
-  const percentCell = document.querySelector('.pct[data-index="' + index + '"]');
-  const statusCell = document.querySelector('.mark-status[data-index="' + index + '"]');
-  percentCell.textContent = getPercentage(students[index].marks);
-  statusCell.innerHTML = getStatusBadge(students[index].marks);
   updateProgress();
+});
+
+saveButton.addEventListener("click", function () {
+  for (let i = 0; i < students.length; i++) {
+    const student = students[i];
+
+    if (student.marks !== "" && !isValidMark(student.marks)) {
+      alert(
+        student.name + " (" + student.id + "): please enter a whole number between " +
+        minMarks + " and " + totalMarks + "."
+      );
+      return;
+    }
+  }
+
+
 });
 
 saveButton.addEventListener("click", function () {
@@ -159,7 +132,6 @@ saveButton.addEventListener("click", function () {
   }
 
   marksError.classList.remove("show");
-  showToast("Marks saved successfully.");
 });
 
 newExamButton.addEventListener("click", function () {
